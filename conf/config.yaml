@@ -1,0 +1,84 @@
+# Single source of truth for the pipeline. Every number that can change an
+# answer lives here, not in the code.
+seed: 20240917
+
+data:
+  source_url: "https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-02-11/hotels.csv"
+  # Checksum of the copy this project was built and validated against.
+  sha256: "7c2ae42a7353905ea136e5c2287f17c92c5435826598bfbb8491c6f0c7b1fc06"
+  raw_path: "data/raw/hotel_bookings.csv"
+  processed_path: "data/processed/bookings.parquet"
+  # ~32k rows are exact duplicates. Group bookings legitimately produce
+  # identical rows, so we keep them by default; flip to true for the
+  # de-duplicated sensitivity run.
+  drop_exact_duplicates: false
+  # ADR has a -6.38 and a 5400 outlier; clip rather than drop so we keep the booking.
+  adr_clip: [5.0, 1000.0]
+
+# Split on ARRIVAL date, never at random: the model is used to forecast
+# forward, so it must be validated forward.
+split:
+  train: ["2015-07-01", "2016-12-31"]
+  valid: ["2017-01-01", "2017-03-31"]
+  test: ["2017-04-01", "2017-08-31"]
+
+features:
+  # arrival_eve: everything known the night before arrival (the moment the
+  #              final authorisation level is set).
+  # booking_time: only what was known when the booking was created.
+  view: "arrival_eve"
+  min_country_freq: 50          # rarer countries collapse to __OTHER__
+  rolling_cancel_windows: [28, 90]
+
+model:
+  n_splits: 4                   # rolling-origin folds inside the training window
+  calibration: "isotonic"       # isotonic | sigmoid | none
+  # Refit the calibrator as outcomes resolve, using only earlier arrival dates.
+  # A pandas offset alias ("M" = monthly); null keeps one frozen calibrator.
+  calibration_refresh: "M"
+  # Selected by rolling-origin CV on the training window; reproduce with
+  # `python scripts/tune_lightgbm.py` (results in reports/tuning.csv).
+  # A wider tree (63 leaves) scored better in-fold and clearly worse out of
+  # fold — this data rewards regularisation over capacity.
+  lightgbm:
+    objective: "binary"
+    learning_rate: 0.03
+    num_leaves: 15
+    min_data_in_leaf: 50
+    feature_fraction: 0.8
+    bagging_fraction: 0.8
+    bagging_freq: 1
+    lambda_l2: 1.0
+    num_boost_round: 1500
+    early_stopping_rounds: 100
+    verbosity: -1
+
+# Assumptions, not measurements. The dataset contains no cost data, so these
+# are stated openly and swept in reports/sensitivity.csv.
+economics:
+  variable_cost_ratio: 0.25     # housekeeping/amenities as a share of ADR
+  walk_cost_multiplier: 2.0     # cost of denying a guest a room, in units of ADR
+  # Capacity := this quantile of TRAIN realised arrivals. The extract has no
+  # room inventory, so this choice defines the regime being studied. At 0.70
+  # the hotels are genuinely capacity-constrained (demand exceeds rooms on
+  # ~40% of held-out nights), which is where an overbooking decision exists at
+  # all; backtest.capacity_quantiles sweeps the whole range.
+  capacity_quantile: 0.70
+  sensitivity_walk_multipliers: [1.0, 1.5, 2.0, 3.0, 4.0, 6.0]
+
+# The arrival distribution used by the decision layer.
+decision:
+  # Mix the Poisson-binomial over a shared nightly shock, correcting the
+  # independence assumption. tau is estimated on the validation window.
+  overdispersion: true
+  quadrature_nodes: 7
+
+backtest:
+  bootstrap_samples: 2000
+  fixed_overbook_rates: [0.0, 0.05, 0.10, 0.15, 0.25]
+  capacity_quantiles: [0.50, 0.60, 0.70, 0.80, 0.90]
+
+paths:
+  models_dir: "models"
+  reports_dir: "reports"
+  figures_dir: "reports/figures"

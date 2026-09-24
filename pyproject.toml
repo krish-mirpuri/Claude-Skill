@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "overbook"
+version = "0.1.0"
+description = "Calibrated cancellation risk and revenue-optimal hotel overbooking limits."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Krish Mirpuri" }]
+dependencies = [
+    "numpy>=1.26",
+    "pandas>=2.1",
+    "scipy>=1.11",
+    "scikit-learn>=1.4",
+    "lightgbm>=4.1",
+    "pyarrow>=14",
+    "matplotlib>=3.8",
+    "joblib>=1.3",
+    "pydantic>=2.5",
+    "pyyaml>=6.0",
+    "requests>=2.31",
+]
+
+[project.optional-dependencies]
+serve = ["fastapi>=0.109", "uvicorn[standard]>=0.27"]
+app = ["streamlit>=1.31", "altair>=5.2"]
+explain = ["shap>=0.44"]
+dev = ["pytest>=8.0", "pytest-cov>=4.1", "ruff>=0.3", "httpx>=0.26"]
+
+[project.scripts]
+overbook = "overbook.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
+markers = ["slow: needs the full dataset or a trained model"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "NPY"]
+ignore = ["E501"]
+
+[tool.coverage.run]
+source = ["overbook"]
+omit = ["*/dashboard/*", "*/__main__.py"]

@@ -1,0 +1,20 @@
+{
+  "hotel": "Resort Hotel",
+  "arrival_date": "2017-08-28",
+  "capacity": 40,
+  "bookings_on_books": 78,
+  "authorised": 63,
+  "overbook_pct": 57.5,
+  "expected_arrivals": 37.48080242132339,
+  "p_oversell": 0.21058926502215944,
+  "expected_walks": 0.5222901071019127,
+  "expected_unsold": 3.0414876857785353,
+  "expected_profit": 5444.095499042912,
+  "tau": 0.06993543031705994,
+  "policy_limits": {
+    "no_overbook": 40,
+    "mean_rate": 63,
+    "expected_arrivals": 67,
+    "oracle": 77
+  }
+}
