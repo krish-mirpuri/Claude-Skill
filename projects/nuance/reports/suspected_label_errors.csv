@@ -1,0 +1,301 @@
+row,label,kind,confidence,rank_score,p,threshold,given_labels,text
+39149,amusement,label probably missing,0.19579347065993302,0.999999999898777,0.9999999999801812,0.8042065293202482,joy,Lol!!
+4126,remorse,label probably missing,0.21517735481279354,0.9999999998888061,0.9999999999760736,0.78482264516328,sadness,I'm so sorry
+15733,love,label probably missing,0.1944739313064311,0.9999999979217036,0.9999999995958255,0.8055260682893944,disapproval,i don't love love love it
+35538,gratitude,label probably missing,0.1063818453309402,0.9999999975275956,0.9999999997369811,0.8936181544060409,curiosity,Why thank you
+31761,sadness,label probably missing,0.44816904249301515,0.9999994486648884,0.9999997529085347,0.5518307104155196,neutral,You are a sad person
+2190,embarrassment,label probably missing,0.49686457060198697,0.999999330727149,0.9999996674618097,0.5031350968598227,neutral,Shame..
+27954,anger,label probably missing,0.47945979510962466,0.9999978332519941,0.9999989611291941,0.5205391660195694,neutral,FUCK YOU
+15694,pride,label probably missing,0.6048757034306125,0.9999976710021522,0.9999985912425076,0.3951228878118951,admiration,so proud of you!
+20003,joy,label probably missing,0.4339728332037621,0.9999970932120753,0.999998738529342,0.5660259053255798,gratitude,Glad your happy but also what
+1670,fear,label probably missing,0.3855233655180016,0.9999956262145487,0.9999983137961377,0.6144749482781361,neutral,dont be scared
+32045,admiration,label probably missing,0.3164818838033344,0.999975659821171,0.9999922965868496,0.6835104127835152,excitement,It’s amazing.
+22162,grief,label probably missing,0.7131405785297428,0.9999749862732327,0.9999821612502083,0.28684158272046556,neutral,YOU DIED
+32796,realization,label probably missing,0.7088229291139275,0.9999629060430031,0.9999737059773997,0.2911507768634721,"excitement, surprise",Oh wow I didn’t realize that
+39066,optimism,label probably missing,0.42584379699711405,0.9999155069882987,0.9999640161346922,0.5741202191375782,neutral,Praying yea hope so
+21651,curiosity,label probably missing,0.46424001820231087,0.9998884848057398,0.9999482244104219,0.535708206208111,neutral,Why? What happens?
+14092,excitement,label probably missing,0.5829358966637663,0.999844204615517,0.999909167126508,0.41697327046274163,neutral,Don't get excited yet...
+546,surprise,label probably missing,0.4208870478726364,0.9998441610520623,0.9999343991820965,0.5790473513094601,neutral,Wouldn’t be surprised
+27185,desire,label probably missing,0.4925564049323833,0.9998397072287932,0.9999210341112166,0.5073646291788333,neutral,How i wish i was there rn.
+17229,confusion,label probably missing,0.5633627220946513,0.9998163854373072,0.9998965394032729,0.4365338173086216,disapproval,"I understand why he's confused but [NAME] is the host of the show, he can't just leave"
+31193,caring,label probably missing,0.5362691772402458,0.9997900602484197,0.9998873921412841,0.4636182149010383,optimism,I hope you stay as warm and safe as you can ❄💙
+37118,relief,label probably missing,0.762348268784732,0.9997679758825525,0.9998230757650581,0.2374748069803261,joy,I’m glad
+30734,disapproval,label probably missing,0.6048127619786245,0.9997652194132653,0.999857968358606,0.39504520637998136,neutral,No.
+35787,annoyance,label probably missing,0.6269270118492658,0.9996553258209799,0.9997838399420949,0.372856828092829,anger,Fuck shit bitch
+17581,disgust,label probably missing,0.5289782756197572,0.9996250310255635,0.9998015751553312,0.470823299535574,"annoyance, realization",Omg that was the WORST
+33695,embarrassment,label probably spurious,0.5029324161338382,0.9995971644052473,0.00020268072598450513,0.5031350968598227,"embarrassment, sadness",you're [NAME]
+8275,disappointment,label probably missing,0.6884467913266598,0.9994775353357248,0.9996401228552065,0.3111933315285468,sadness,Reality is often disappointing
+23120,remorse,label probably spurious,0.78435310618013,0.9994017260000795,0.0004695389831500676,0.78482264516328,remorse,He sounded so disappointed when he realized they just wanted sex :( Poor OP!
+7636,desire,label probably spurious,0.5070285782736484,0.9993376540541883,0.00033605090518482495,0.5073646291788333,"desire, gratitude, optimism","Love this. I thought I replied this morning, but I’m definitely taking your ideas and going to try them! Best of luck"
+15805,fear,label probably spurious,0.6140477126623783,0.9993047143468502,0.0004272356157577948,0.6144749482781361,fear,It just never got weird enough..
+42730,confusion,label probably spurious,0.43621629801387163,0.9992726352869805,0.0003175192947499969,0.4365338173086216,confusion,Exactly. It's like a deepity only longer and wronger.
+578,amusement,label probably spurious,0.8036195482433448,0.9992701115254566,0.0005869810769033814,0.8042065293202482,amusement,Happy Cake Day! :)
+20740,relief,label probably spurious,0.2373008411657277,0.9992674346520773,0.00017396581459841974,0.2374748069803261,"approval, relief",Hi !! I totally get you. If you want to be friends I’m here !! :)
+2127,nervousness,label probably missing,0.6427308022273381,0.9990602301432231,0.999395412793212,0.35666461056587384,fear,I was worried about that too honestly
+9998,approval,label probably missing,0.6149969125883985,0.999058399171812,0.9994203726201528,0.3844234600317543,neutral,So true.
+31116,pride,label probably spurious,0.394701603697368,0.9989337896448873,0.00042128411452706623,0.3951228878118951,pride,"Even when drinking, I would remember that D is 13, not 14. Semper Nerdalis."
+30412,grief,label probably spurious,0.28652361680694893,0.9988914929610241,0.0003179659135166176,0.28684158272046556,"disappointment, grief","Yeah. Hard not to catch feelings sometimes, even if they are just a bunch of writeoffs."
+7458,nervousness,label probably spurious,0.35626900262507977,0.9988908124633773,0.0003956079407940981,0.35666461056587384,"caring, curiosity, nervousness","omg what a nightmare, I feel for you 😞 is there any way you could order it online?"
+22169,realization,label probably spurious,0.29080163122067293,0.9988008081360438,0.00034914564279919406,0.2911507768634721,realization,Id rather do the highlights again just not a full match.
+14854,caring,label probably spurious,0.46295320783476385,0.9985656148854799,0.0006650070662744237,0.4636182149010383,"approval, caring",I agree but I can’t force him.
+22591,gratitude,label probably spurious,0.892279779226904,0.9985022963415214,0.0013383751791367895,0.8936181544060409,"admiration, gratitude",Damn that must feel great!
+41689,disgust,label probably spurious,0.4701007651058729,0.9984653808967954,0.0007225344297010915,0.470823299535574,disgust,my little abomination
+22805,neutral,label probably spurious,0.6007237130627582,0.9984631455799298,0.0009246459398612045,0.6016483590026194,neutral,I give you points for making me very surprised to see [NAME] up there. I'm glad he is.
+40233,joy,label probably spurious,0.5651377622757262,0.9984309144837765,0.0008881430498536836,0.5660259053255798,"annoyance, joy","Yup, cats can you think it could get the correct call. The US and holy shit how do you know there are too brittle."
+32079,sadness,label probably spurious,0.550948644737589,0.998401564716711,0.00088206567793058,0.5518307104155196,sadness,Its all good until that episode where [NAME] traps the bat on [NAME] head comes on and she screams bloody murder and wakes us up.
+43249,surprise,label probably spurious,0.5780442964472531,0.9982677498481969,0.001003054862206981,0.5790473513094601,surprise,Guess I hit a triple
+9566,approval,label probably spurious,0.38358234348736225,0.9978120051665874,0.0008411165443920395,0.3844234600317543,"approval, gratitude",Thank you - you may call me daddy.
+22501,optimism,label probably spurious,0.572836570009227,0.9977641457563028,0.0012836491283510618,0.5741202191375782,optimism,That definitely makes him a terrorist.
+9732,anger,label probably spurious,0.5191075071281771,0.9972496615339441,0.0014316588913922592,0.5205391660195694,anger,Only issue I have is that tiramisu is a beautifully layered cake and all of that is hidden by the container
+37994,excitement,label probably spurious,0.41581100871604226,0.9972126228968837,0.0011622617466993835,0.41697327046274163,excitement,too much internet
+39815,annoyance,label probably spurious,0.37179280772570966,0.9971463031197207,0.0010640203671193438,0.372856828092829,annoyance,"You know, I didn’t have an anxiety attack all day. Thanks for ensuring it happened. "
+28553,admiration,label probably spurious,0.6814554738388374,0.9969935513691601,0.002054938944677829,0.6835104127835152,"admiration, disappointment",group wasn't bad. Edit: Unless you're talking home rentals then my bad.
+5200,disapproval,label probably spurious,0.3938507992884732,0.9969765306040461,0.0011944070915081229,0.39504520637998136,"annoyance, disapproval",Thats a meme? That feels more like depression
+20526,love,label probably spurious,0.802892274092362,0.9967303426906772,0.0026337941970324703,0.8055260682893944,"admiration, disappointment, love","Got the same pops! [NAME] a lot :) too bad I can barely play him, wish there was a Hwoarang pop"
+21614,disappointment,label probably spurious,0.3100970352731862,0.9964771216337585,0.0010962962553605475,0.3111933315285468,disappointment,Same. I felt like I haven’t found the “right” therapist. Hang in there and hug your little one tight!
+596,curiosity,label probably spurious,0.5327820090316523,0.9945377032822194,0.0029261971764587462,0.535708206208111,curiosity,So much time saved. Not.
+41797,neutral,label probably missing,0.3925036131657632,0.9853194333102901,0.9941519721683826,0.6016483590026194,admiration,"""""""They didn't get [NAME]. They got [NAME]."""" - [NAME] on draft night That boy gud!"""
+34824,remorse,label probably missing,0.21517735458307863,0.9999999988212452,0.9999999997463587,0.78482264516328,neutral,"Sorry, not sorry'."
+34880,amusement,label probably missing,0.19579346992465807,0.9999999961434171,0.9999999992449062,0.8042065293202482,joy,Okay that was funny lol
+42567,gratitude,label probably missing,0.10638184284288044,0.9999999741395847,0.9999999972489213,0.8936181544060409,confusion,Why thank you :)
+41978,love,label probably missing,0.19447390867092107,0.9999998815281601,0.9999999769603155,0.8055260682893944,neutral,~~love is love~~
+9791,anger,label probably missing,0.4794590451148577,0.9999962690058372,0.9999982111344271,0.5205391660195694,neutral,fucking fuck fuck
+21152,embarrassment,label probably missing,0.4968629173606389,0.9999960033813501,0.9999980142204616,0.5031350968598227,curiosity,Why is it embarrassing?
+22112,pride,label probably missing,0.6048707212606048,0.9999894343373699,0.9999936090724999,0.3951228878118951,neutral,And proud!
+17474,joy,label probably missing,0.4339683018818693,0.9999866517549735,0.9999942072074491,0.5660259053255798,neutral,Happy kek day
+37360,sadness,label probably missing,0.44815979570682885,0.9999788163136738,0.9999905061223484,0.5518307104155196,neutral,Not sad or cringe.
+40984,admiration,label probably missing,0.31648043038752727,0.9999710675190358,0.9999908431710425,0.6835104127835152,approval,This is great. Good Yard!
+26203,curiosity,label probably missing,0.4642317128643956,0.9998705966198481,0.9999399190725066,0.535708206208111,neutral,you're curious.
+12897,fear,label probably missing,0.3854680254820615,0.999852081623366,0.9999429737601976,0.6144749482781361,joy,I like to be scared actually!
+22997,surprise,label probably missing,0.4208736109366593,0.999812240749342,0.9999209622461194,0.5790473513094601,disappointment,Not surprising.
+11119,desire,label probably missing,0.4925322553363626,0.9997906859902644,0.9998968845151959,0.5073646291788333,neutral,i wish i got free drugs :(
+4864,optimism,label probably missing,0.4257842461264585,0.999775676751383,0.9999044652640366,0.5741202191375782,amusement,I really hope you're joking
+38045,confusion,label probably missing,0.563312902496787,0.9997279691323102,0.9998467198054086,0.4365338173086216,neutral,Not sure if [NAME] or [NAME]
+14873,caring,label probably missing,0.536164175186925,0.999594300332185,0.9997823900879633,0.4636182149010383,optimism,u/TheQTVain praying for your little fighter. Hope everything goes well and he comes out in good health. Stay strong and let [NAME] do his thing ❤️
+40426,disgust,label probably missing,0.528935762984422,0.9995446937104515,0.999759062519996,0.470823299535574,fear,"I would think terrible, awful things."
+26052,excitement,label probably missing,0.5826762165708506,0.9993988046368198,0.9996494870335921,0.41697327046274163,neutral,I’m actually excited to see how [NAME] turns out.
+12372,disapproval,label probably missing,0.604529674997146,0.9992972720815573,0.9995748813771275,0.39504520637998136,approval,"Nope, you weren't in the wrong at all."
+7056,embarrassment,label probably spurious,0.5027471923983603,0.9992290252381847,0.00038790446146236827,0.5031350968598227,embarrassment,Humiliation on top of arrest!!!
+10603,annoyance,label probably missing,0.6266593756096934,0.9992285712112494,0.9995162037025224,0.372856828092829,approval,It's not hypocritical to find annoying behaviour annoying. The two situations aren't mutually exclusive.
+252,disappointment,label probably missing,0.6882697932471432,0.9992205719705046,0.99946312477569,0.3111933315285468,sadness,"No he was given a bad team to work with unfortunately, and never got the final shot he deserved :("
+9446,amusement,label probably spurious,0.8034146316220558,0.9990153055598023,0.000791897698192342,0.8042065293202482,amusement,"Hate Hate Hate, feels so good."
+33101,remorse,label probably spurious,0.7838468314762833,0.9987566443284855,0.0009758136869967069,0.78482264516328,"annoyance, remorse",Those vast differences don't get noticed by the public.
+26310,approval,label probably missing,0.6147720628396136,0.9986931322485526,0.9991955228713679,0.3844234600317543,neutral,Yes
+32938,pride,label probably spurious,0.3945776688175912,0.9986201280383347,0.0005452189943038484,0.3951228878118951,pride,"Havent been working for 10 years at this company about 5 now, but i have overall 10 years experience"
+13160,relief,label probably missing,0.761435817744524,0.9985713583169155,0.99891062472485,0.2374748069803261,approval,I know! So relieved.
+39263,neutral,label probably spurious,0.6007101140436178,0.9984405426442833,0.0009382449590015106,0.6016483590026194,neutral,I'm so so so sorry this happened to you friend. I hope [NAME] had a lovely life 💗
+946,nervousness,label probably missing,0.6422804238689106,0.9983601623934547,0.9989450344347844,0.35666461056587384,neutral,"Yeah strong man makes me nervous, imagine if he dropped it on his foot? 😬"
+38343,sadness,label probably spurious,0.5509049062875797,0.9983223040862609,0.0009258041279398883,0.5518307104155196,"annoyance, sadness","This momentum control by the refs is killing us, and we're letting it"
+14083,gratitude,label probably spurious,0.8920150331988603,0.9982060333048559,0.0016031212071805276,0.8936181544060409,gratitude,You are an absolute gem
+32978,desire,label probably spurious,0.506440442478629,0.9981784565831873,0.000924186700204342,0.5073646291788333,desire,They're passionate about different things.
+13638,realization,label probably spurious,0.29059408583212887,0.9980879630913563,0.0005566910313432524,0.2911507768634721,"amusement, realization",Lmao there referring to what [NAME] said in episode 3 🤦‍♂️
+34142,fear,label probably spurious,0.6132778376053226,0.9980518153324753,0.0011971106728134728,0.6144749482781361,fear,"If you are really so dead set against shoveling sidewalks, perhaps you should move to a warmer climate. "
+28109,realization,label probably missing,0.7074568533011368,0.9980357320147294,0.998607630164609,0.2911507768634721,embarrassment,"My bad I just realized it, I’m 31M and she’s 31F"
+16829,relief,label probably spurious,0.23700435098947503,0.9980189225255796,0.00047045599085107545,0.2374748069803261,relief,You sound like a douche.
+16664,grief,label probably missing,0.7116548599560879,0.9978916923827639,0.9984964426765535,0.28684158272046556,"caring, remorse, sadness",I'm sorry for your loss
+3272,surprise,label probably spurious,0.5778249617307605,0.9978889643896388,0.001222389578699632,0.5790473513094601,"gratitude, surprise",It literally never occurred to me that there would be a sub for USAJOBS. Thank you so much
+38218,nervousness,label probably spurious,0.3558232632722249,0.9976410687555626,0.000841347293648929,0.35666461056587384,nervousness,"Snorting them might be what kept her from having a lethal overdose, snorting benzos is pretty much a waste as most of it barely absorbs."
+27538,approval,label probably spurious,0.3834834977369682,0.9975548779080536,0.0009399622947860988,0.3844234600317543,"annoyance, approval",The way that was worded I can't tell if your super calm or about to flip a chair
+23260,confusion,label probably spurious,0.4351332566411477,0.9967916330603919,0.0014005606674739267,0.4365338173086216,confusion,Favourite month??!!
+1254,anger,label probably spurious,0.5187701576823001,0.9966015845631818,0.0017690083372693226,0.5205391660195694,anger,[NAME]!
+35823,caring,label probably spurious,0.4620141400664969,0.9965400953133737,0.001604074834541377,0.4636182149010383,caring,My arms only seem small because my love handles are so big
+11941,joy,label probably spurious,0.5640465012109921,0.9965029796411011,0.0019794041145877873,0.5660259053255798,joy,Yes my man
+38085,admiration,label probably spurious,0.6810688843753405,0.9964279572593022,0.002441528408174726,0.6835104127835152,"admiration, approval","""They didn't have a """"bullpen"""" when they won the WS or when they went to the ALCS last year. They will get by as always"""
+30327,disgust,label probably spurious,0.4691139539198953,0.9963694540661755,0.0017093456156786761,0.470823299535574,"disapproval, disgust",What a useless answer in this situation
+28227,optimism,label probably spurious,0.5719190178234693,0.9961659575107538,0.0022012013141088182,0.5741202191375782,"disappointment, optimism",She looks like an early game killer.
+26863,annoyance,label probably spurious,0.37141979456635543,0.9961458838401216,0.0014370335264735573,0.372856828092829,annoyance,"As much as I’d love [NAME] to be gone, i know they never would "
+16713,love,label probably spurious,0.8023672615173946,0.9960785790847119,0.003158806771999902,0.8055260682893944,"caring, excitement, love, optimism","Happy birthday my guy! Hope you have a great day today, tomorrow, and every day after that. You and everyone deserve a good day. 😃"
+39374,disapproval,label probably spurious,0.39346557964466683,0.996001402599491,0.001579626735314538,0.39504520637998136,"amusement, disapproval",you obviously dont know how the wilpons work lol
+5158,grief,label probably spurious,0.28560465469828783,0.9956877660120041,0.00123692802217772,0.28684158272046556,"embarrassment, grief","Man, [NAME]. What a shame that trainwreck turned out to be. "
+34525,excitement,label probably spurious,0.41514116732829665,0.9956061856617049,0.0018321031344449793,0.41697327046274163,"excitement, neutral","""He looks like he is GTFO after that. """"The tiger shark is second only to the great white in recorded fatal attacks on humans.[7]"""" """
+21440,disappointment,label probably spurious,0.3097449429264253,0.9953456952467228,0.0014483886021214927,0.3111933315285468,disappointment,America can out-lazy your ass any day.
+24773,curiosity,label probably spurious,0.5327051469990086,0.9943942258597104,0.003003059209102415,0.535708206208111,curiosity,"UGH ME TOO! Eager to wake up with mania, any day now."
+10613,neutral,label probably missing,0.38996339565542903,0.9789426113045515,0.9916117546580484,0.6016483590026194,admiration,[NAME] is [NAME].
+30504,amusement,label probably missing,0.1957934691552271,0.9999999922136079,0.9999999984754753,0.8042065293202482,desire,Lol I wish
+32165,remorse,label probably missing,0.2151773458379772,0.9999999581798802,0.9999999910012572,0.78482264516328,neutral,- (sorry) -
+545,gratitude,label probably missing,0.10638182828440457,0.999999837288454,0.9999999826904454,0.8936181544060409,"anger, annoyance",Thank you I hate it
+26540,love,label probably missing,0.1944736144489816,0.9999983686161884,0.999999682738376,0.8055260682893944,amusement,Lol love it.
+3917,joy,label probably missing,0.43396243595573614,0.9999731349893298,0.999988341281316,0.5660259053255798,"admiration, excitement",It's wonderful and gives me happy happy feels
+2944,admiration,label probably missing,0.3164736717009514,0.9999497123565001,0.9999840844844666,0.6835104127835152,neutral,nice
+3112,anger,label probably missing,0.4794110241609032,0.9998961128501073,0.9999501901804726,0.5205391660195694,disappointment,me as fuck
+40750,fear,label probably missing,0.38543505492533126,0.999766560444955,0.9999100032034673,0.6144749482781361,amusement,Lol you're scared
+6995,optimism,label probably missing,0.42578007810983043,0.9997658899129009,0.9999002972474086,0.5741202191375782,gratitude,"Thank you. I hope things get better for you, and I believe in you, too."
+6872,desire,label probably missing,0.4925062509267236,0.9997378996676023,0.9998708801055569,0.5073646291788333,optimism,I wish for world peace!
+18796,surprise,label probably missing,0.4208403598688969,0.9997332507064812,0.999887711178357,0.5790473513094601,joy,"""*""""Wow""""*"""
+36394,embarrassment,label probably missing,0.4967243640541721,0.9997171482929927,0.9998594609139948,0.5031350968598227,anger,Shame on you
+31127,pride,label probably missing,0.6046892611084369,0.9996894392664513,0.999812148920332,0.3951228878118951,admiration,I'm so proud of this community
+6858,curiosity,label probably missing,0.4641033070291565,0.999594033826889,0.9998115132372675,0.535708206208111,neutral,Can anyone tell me what happened to [NAME]?
+20000,confusion,label probably missing,0.5632349031780515,0.9995895414482158,0.9997687204866731,0.4365338173086216,neutral,I don't know
+37972,sadness,label probably missing,0.4479755550559299,0.9995677202051704,0.9998062654714495,0.5518307104155196,remorse,"Still, it’s legal weed. Sorry, sad [NAME] here.."
+4821,caring,label probably missing,0.5361436602454431,0.9995560534303478,0.9997618751464814,0.4636182149010383,"desire, remorse","I'm sorry to hear that. Wish I could be here to help you, stay strong "
+18457,disgust,label probably missing,0.5287781387002132,0.9992468266953873,0.9996014382357872,0.470823299535574,remorse,Ugh. Sounds awful. I’m sorry :(
+24531,amusement,label probably spurious,0.8033348093733104,0.9989160496524759,0.0008717199469377877,0.8042065293202482,"amusement, disapproval","No i know, was pointing it out for humor, not for any sort of accusation"
+656,disapproval,label probably missing,0.60427365081304,0.9988740599890072,0.9993188571930214,0.39504520637998136,neutral,That's not a thing
+21846,excitement,label probably missing,0.5823643467334976,0.998863889475039,0.9993376171962391,0.41697327046274163,admiration,Awesome and interesting response!
+40414,approval,label probably missing,0.6147701320610567,0.9986899957116128,0.999193592092811,0.3844234600317543,"disappointment, optimism",I think this does help less good pupils to learn it better and agree with the teachers. In my class thats the biggest problem when it comes to french
+41963,disappointment,label probably missing,0.6878354760969034,0.9985900363352971,0.9990288076254502,0.3111933315285468,optimism,Imagine being upset by this
+4253,remorse,label probably spurious,0.7834797789124438,0.9982889557798669,0.0013428662508362815,0.78482264516328,remorse,you got me [NAME]
+41855,gratitude,label probably spurious,0.8918190040253213,0.9979866676031046,0.001799150380719538,0.8936181544060409,gratitude,"Sorry, doesn't ring a bell. Do.you know [NAME] ign?"
+21722,realization,label probably spurious,0.29055115109850493,0.9979404974583036,0.0005996257649672179,0.2911507768634721,realization,Time to cut him off. Or find a way to get him good help. Cause he sounds a little dangerous.
+5418,pride,label probably spurious,0.3942814924829755,0.9978705477336961,0.0008413953289195885,0.3951228878118951,"gratitude, pride",nice try buddy
+33072,nervousness,label probably missing,0.6419240014754513,0.9978061397183259,0.9985886120413251,0.35666461056587384,"curiosity, fear",This gives me anxiety and heartburn just looking at it!
+34824,neutral,label probably spurious,0.6002858445994526,0.9977353642160256,0.0013625144031668213,0.6016483590026194,neutral,"Sorry, not sorry'."
+38571,annoyance,label probably missing,0.6256986130493556,0.9976966043440728,0.9985554411421845,0.372856828092829,anger,U dumb.
+28024,nervousness,label probably spurious,0.3558216882834587,0.9976366528737522,0.0008429222824150882,0.35666461056587384,"fear, joy, nervousness",This must have been totally horrifying for you. I'm glad to hear you found peace in the second birth.
+10396,sadness,label probably spurious,0.5505086952459705,0.9976043102629181,0.0013220151695491449,0.5518307104155196,"disappointment, sadness",Ashamed of being British
+22346,realization,label probably missing,0.707130595792941,0.997575468396534,0.9982813726564131,0.2911507768634721,"approval, caring","I know, that is why I said that. "
+16405,relief,label probably spurious,0.23685209013132688,0.9973777561632009,0.0006227168489992296,0.2374748069803261,relief,That got rid of an unwanted boner real quick
+18174,grief,label probably missing,0.7112711584520306,0.9973536611476829,0.9981127411724962,0.28684158272046556,"amusement, remorse","I'm sorry for your loss ,[NAME]"
+35602,relief,label probably missing,0.7603431607838222,0.9971384129261217,0.9978179677641483,0.2374748069803261,joy,I’m glad at least one good thing could come from my experience!
+10979,surprise,label probably spurious,0.5773875200263193,0.99713351372839,0.001659831283140727,0.5790473513094601,"surprise, neutral",Legit. Can't beleive that society lets those people run around free like the walking sex crimes they are.
+39252,desire,label probably spurious,0.5058309598133691,0.9969771850908361,0.001533669365464227,0.5073646291788333,desire,I believe furloughed feds still have health insurance benefits so you're not wrong on that PSA.
+18126,embarrassment,label probably spurious,0.5016027910804155,0.9969544844138867,0.0015323057794072025,0.5031350968598227,"embarrassment, realization",Shoot i posted this in the wrong place. Here you are several sources. Happened last summer.
+27245,confusion,label probably spurious,0.43513158018072273,0.9967877926696627,0.001402237127898874,0.4365338173086216,"confusion, disapproval",Nope. Love them. What do you find gross?
+14203,fear,label probably spurious,0.6124328838134445,0.9966767327611747,0.0020420644646915857,0.6144749482781361,fear,"Man, dropping is rather dreadful but nothing’s more dreadful when you can reach into your pockets expecting it to be there and it isn’t "
+33009,caring,label probably spurious,0.4619680181832817,0.9964406128475586,0.0016501967177565628,0.4636182149010383,"caring, neutral",It's the only way to stop the ache.
+8616,approval,label probably spurious,0.38303657736197294,0.996392304804533,0.0013868826697813856,0.3844234600317543,approval,[NAME] died for our shins
+18462,anger,label probably spurious,0.5186598313261155,0.9963896382517675,0.0018793346934539573,0.5205391660195694,anger,ITS MAM!
+40009,admiration,label probably spurious,0.6809664434026017,0.9962780824793093,0.002543969380913503,0.6835104127835152,"admiration, amusement",Underrated comment 🤣
+197,disgust,label probably spurious,0.469024918560946,0.9961803483888713,0.0017983809746279916,0.470823299535574,disgust,[NAME]
+41024,optimism,label probably spurious,0.5718906515124167,0.99611654919851,0.002229567625161452,0.5741202191375782,"admiration, optimism","[NAME] wore them today. Trying to be like her crush, [NAME]. It's kind of sweet."
+36053,joy,label probably spurious,0.5636856435854131,0.9958654511778562,0.002340261740166767,0.5660259053255798,joy,She looks almost devoid of color. Kinda like a manga. Amazing.
+5090,love,label probably spurious,0.8021852654912887,0.9958526447130379,0.0033408027981058,0.8055260682893944,"approval, love",I can easily relate to that as well. The siblings are the ones who will stick with us for the whole journey to the very end.
+144,excitement,label probably spurious,0.4151003032969499,0.9955081841008342,0.001872967165791721,0.41697327046274163,"excitement, love","Absolutely. I'd love it. No matter how much I like the guy, if he just goes for it that's not cool."
+1291,grief,label probably spurious,0.28551350155059224,0.9953699838172781,0.001328081169873343,0.28684158272046556,grief,youve never played against a good support [NAME] then
+36685,disappointment,label probably spurious,0.30972829036221217,0.9952921832896017,0.0014650411663346167,0.3111933315285468,disappointment,You sound like someone who doesnt know what ironic humour is.
+17150,disapproval,label probably spurious,0.39307775030173914,0.99501966851776,0.001967456078242227,0.39504520637998136,"amusement, disapproval","Lmao if that's insensitive to you, you'd better stay off the internet. "
+3468,annoyance,label probably spurious,0.3709210295141008,0.9948081986626612,0.001935798578728221,0.372856828092829,annoyance,Good luck going to jail.
+29901,curiosity,label probably spurious,0.5323156958543258,0.9936672421395254,0.0033925103537852147,0.535708206208111,curiosity,"People like standing in line drunk for extended periods of time, apparently. I don't know how else you could enjoy that experience except lots of booze. "
+30412,neutral,label probably missing,0.3887633290130815,0.9759300301605582,0.9904116880157009,0.6016483590026194,"disappointment, grief","Yeah. Hard not to catch feelings sometimes, even if they are just a bunch of writeoffs."
+2967,amusement,label probably missing,0.19579335543864762,0.9999994114149782,0.9999998847588958,0.8042065293202482,neutral,"Just build, lol. "
+19184,remorse,label probably missing,0.21517688310814065,0.9999978077220083,0.9999995282714207,0.78482264516328,sadness,:( im sorry
+21740,admiration,label probably missing,0.31647056300994303,0.9999398899448507,0.9999809757934582,0.6835104127835152,excitement,Good for you! So awesome!
+5116,love,label probably missing,0.1944619443012049,0.9999383598135996,0.9999880125905993,0.8055260682893944,admiration,Love it. Be well [NAME]
+17134,joy,label probably missing,0.4339289144599243,0.9998958919091018,0.9999548197855042,0.5660259053255798,gratitude,glad to hulp
+29431,gratitude,label probably missing,0.10636979117715162,0.9998866872750682,0.9999879455831925,0.8936181544060409,amusement,This just made my day! Thanks for the laugh!!
+17937,surprise,label probably missing,0.4208255145247639,0.9996979846399078,0.999872865834224,0.5790473513094601,"optimism, realization",I didn’t actually know that. I wish I was surprised.
+18549,fear,label probably missing,0.38540707526546214,0.9996939849800296,0.9998820235435982,0.6144749482781361,"confusion, curiosity",Are you afraid of [NAME]?
+34513,desire,label probably missing,0.4924743743389197,0.9996731934169107,0.999839003517753,0.5073646291788333,neutral,Man I wish that was a real sub
+27096,optimism,label probably missing,0.425729650496397,0.9996474818181769,0.9998498696339752,0.5741202191375782,neutral,Hopefully [NAME] is still hot
+8090,pride,label probably missing,0.6046637020553373,0.9996471843148509,0.9997865898672323,0.3951228878118951,gratitude,Thank you for being proud of me!
+42823,sadness,label probably missing,0.44797063962614525,0.9995567524081819,0.9998013500416648,0.5518307104155196,neutral,sad knight noises...
+19126,anger,label probably missing,0.4792132024796161,0.9994835208983418,0.9997523684991855,0.5205391660195694,disapproval,I hate people.
+20937,curiosity,label probably missing,0.463889427001968,0.9991333751849567,0.999597633210079,0.535708206208111,neutral,Why is it not?
+19993,disgust,label probably missing,0.5286905446759924,0.9990812978197889,0.9995138442115664,0.470823299535574,neutral,What's awful about it?
+30837,disapproval,label probably missing,0.6042524057492953,0.9988389415570703,0.9992976121292767,0.39504520637998136,annoyance,They're wrong I don't like math and I'm still ugly
+28603,confusion,label probably missing,0.5627979627895148,0.9988140904948867,0.9993317800981364,0.4365338173086216,remorse,Yea idk what to tell ya man sorry. Not sure why it’s doing that
+9493,embarrassment,label probably missing,0.49622584652029633,0.9987138221761245,0.999360943380119,0.5031350968598227,neutral,He may be embarrassed about the condition of their house.
+5862,amusement,label probably spurious,0.8030704889316275,0.998587377312665,0.0011360403886207335,0.8042065293202482,"amusement, love",[NAME] I LOVE YOU
+29574,caring,label probably missing,0.5354760616210935,0.9983114201432081,0.9990942765221318,0.4636182149010383,admiration,Stay strong. You are better off without them.
+18651,excitement,label probably missing,0.5819941052104447,0.9982288559434774,0.9989673756731863,0.41697327046274163,joy,"Happy New Year to you, too!"
+42646,approval,label probably missing,0.6144632341566414,0.9981914421045648,0.9988866941883957,0.3844234600317543,joy,I'm glad we agree.
+41562,gratitude,label probably spurious,0.8916367499253042,0.9977827168450336,0.0019814044807367425,0.8936181544060409,gratitude,Does not look bad! Thnx!
+39067,neutral,label probably spurious,0.6001836500753348,0.9975655066529016,0.0014647089272845823,0.6016483590026194,neutral,"lol wow missed that, it stays"
+27550,realization,label probably missing,0.7071001683960403,0.997532543334465,0.9982509452595124,0.2911507768634721,disapproval,Downvoted before I realized what sub I was on
+5555,pride,label probably spurious,0.3941100098643613,0.9974365495424907,0.0010128779475337838,0.3951228878118951,"admiration, pride","That guy is an actor. Forgot his name but he's in imdb, played small roles. "
+4772,nervousness,label probably missing,0.6416144033121576,0.9973249005880396,0.9982790138780314,0.35666461056587384,fear,I’m worried about [NAME] too
+30960,nervousness,label probably spurious,0.35563895451880884,0.9971243122623303,0.001025656047065017,0.35666461056587384,"fear, nervousness","Damn, that's dark"
+6824,surprise,label probably spurious,0.5773014428020021,0.9969848605584505,0.001745908507457974,0.5790473513094601,surprise,"You forgot [NAME] and [NAME] as [NAME] and [NAME] in the 2003 *Battlestar Galactica*, which was spectacular. "
+22071,disappointment,label probably missing,0.6866436416925862,0.9968597476216845,0.997836973221133,0.3111933315285468,disgust,This is going to be a disaster
+34724,realization,label probably spurious,0.2902077191759615,0.9967609302036902,0.0009430576875106563,0.2911507768634721,"caring, realization",Get rid. This is a toxic relationship that is making you unhappy. You are making all efforts for nothing in return.
+13810,annoyance,label probably missing,0.6250913368975413,0.9967282829479113,0.9979481649903703,0.372856828092829,anger,Idiots gonna idiot.
+7582,embarrassment,label probably spurious,0.5014796001391199,0.9967096377672017,0.0016554967207029158,0.5031350968598227,"disapproval, embarrassment",It is heated overnight at much cheaper rates. They are very well insulated.
+41112,remorse,label probably spurious,0.7821890993900964,0.9966444064918186,0.0026335457731836284,0.78482264516328,"realization, remorse",Excuse my wording. I should’ve said [NAME] all around game & unselfishness combined with [NAME] aggressiveness & scoring
+27581,relief,label probably spurious,0.23665022264759847,0.9965276976399609,0.0008245843327276351,0.2374748069803261,relief,Resting up after a furious weekend of #MAGAboys hate. A xer has needs for xedz beauty rest
+21563,grief,label probably missing,0.7106737576156278,0.996515977931825,0.9975153403360933,0.28684158272046556,sadness,Sorry for your loss 😣
+5885,caring,label probably spurious,0.4619255931539956,0.9963491043003909,0.0016926217470426535,0.4636182149010383,"caring, gratitude",thanks! That helps
+39142,desire,label probably spurious,0.5054427456901296,0.996212027054755,0.0019218834887037375,0.5073646291788333,desire,Meanwhile Monokuma: Everything is free if you just become the blackened and get away with it
+5121,optimism,label probably spurious,0.5718765384498262,0.9960919671299465,0.0022436806877519865,0.5741202191375782,"approval, optimism",Drink. Watch hockey. Eat. That's what I do.
+12480,approval,label probably spurious,0.38287037409798713,0.9959599605767064,0.0015530859337671821,0.3844234600317543,"amusement, approval",Not offended just dont care to debate over game development or how long it takes 🤷🏽‍♂️ lol you win sir
+9179,fear,label probably spurious,0.6119383067641189,0.9958718552788436,0.002536641514017272,0.6144749482781361,"fear, sadness","Sadly, I don't have insurance so unless I'm bleeding out I won't be getting medical help."
+752,sadness,label probably spurious,0.5494221276287073,0.9956352867983759,0.0024085827868122493,0.5518307104155196,"amusement, sadness",No! That's horrible news!..for Galaxy fans lol
+18341,confusion,label probably spurious,0.4345513620731508,0.9954586445382553,0.0019824552354707936,0.4365338173086216,confusion,y meme when the news memes for u?
+11273,excitement,label probably spurious,0.4150756831640595,0.9954491392300129,0.0018975872986821088,0.41697327046274163,"disgust, excitement","""""""We've won the AFC less often than you have"""" is a weird flex"""
+12695,joy,label probably spurious,0.5633955427717673,0.9953529290283992,0.00263036255381252,0.5660259053255798,"desire, excitement, joy","He will, I feel like it's Christmas Eve and I'm waiting for [NAME]."
+13019,admiration,label probably spurious,0.6802250507951962,0.9951933987736343,0.003285361988318937,0.6835104127835152,"admiration, approval","I would have to agree. He acts for himself and wants revenge but also cares for and respects life so, chaotic neutral."
+39019,disgust,label probably spurious,0.4685113845946647,0.9950896335351505,0.002311914940909304,0.470823299535574,disgust,Soon: Mass death of pink-skinned Aussies.
+21281,anger,label probably spurious,0.5178768703680995,0.9948855036752992,0.002662295651469909,0.5205391660195694,anger,We needed some way to torture a guy so a religion can be created.
+36308,disapproval,label probably spurious,0.3929442262593618,0.9946816716500069,0.0021009801206195384,0.39504520637998136,disapproval,">the ad, which has been both criticised and applauded Applauded by non-customers. Criticized by customers."
+18172,love,label probably spurious,0.8012330328537801,0.9946705195466474,0.004293035435614367,0.8055260682893944,"admiration, love","He is such a cutie, I had no idea he was polish "
+24037,annoyance,label probably spurious,0.3707333025160575,0.9943047158673924,0.002123525576771501,0.372856828092829,annoyance,"[NAME] and [NAME] may be stronger, but [NAME] just gone mad. She's lost the plot for sure."
+3620,disappointment,label probably spurious,0.3093540911262225,0.9940897178185337,0.0018392404023243165,0.3111933315285468,disappointment,"And here I am, with no promotion after 3 years. Anyways, congrats for yours."
+33761,grief,label probably spurious,0.2850519776314885,0.9937609984159058,0.0017896050889770804,0.28684158272046556,"disappointment, grief","although he is best girl, he can never love :( he litterally doesn't have a heart"
+20609,relief,label probably missing,0.7572144087510103,0.9930352671396568,0.9946892157313364,0.2374748069803261,realization,I’m so glad I’m not the only one with this stuck in my head now!
+22943,curiosity,label probably spurious,0.5316327733951908,0.9923924390821502,0.004075432812920181,0.535708206208111,"confusion, curiosity",>I thought we were retiring the older guys. Because the geniuses on reddit said so?
+7603,neutral,label probably missing,0.3887485803446239,0.9758930059162982,0.9903969393472433,0.6016483590026194,confusion,Hmmm to click or not to click... well goodbye SFW
+39412,amusement,label probably missing,0.1957933464604691,0.9999993655596261,0.9999998757807173,0.8042065293202482,disapproval,Lol no.
+82,remorse,label probably missing,0.21517526287697142,0.9999902779744173,0.9999979080402515,0.78482264516328,sadness,sorry [NAME]! 😘😘😘
+8982,love,label probably missing,0.19445859619746986,0.9999211436052081,0.9999846644868643,0.8055260682893944,neutral,Serenity and love and loving serenity.
+38796,joy,label probably missing,0.4339136151208325,0.9998606378714079,0.9999395204464123,0.5660259053255798,admiration,Awesome. Glad to hear it
+30266,admiration,label probably missing,0.3163977839932208,0.9997099328793994,0.999908196776736,0.6835104127835152,excitement,That was amazing!
+43256,gratitude,label probably missing,0.10634745743577201,0.9996767478699479,0.9999656118418129,0.8936181544060409,neutral,No thanks?
+13891,surprise,label probably missing,0.4208113627998811,0.9996643663103241,0.9998587141093411,0.5790473513094601,"anger, annoyance","Oh wow, hate that. "
+12630,optimism,label probably missing,0.42570957688355326,0.9996003473597082,0.9998297960211314,0.5741202191375782,caring,Wish you good luck
+21047,desire,label probably missing,0.4924010944507342,0.9995244426520938,0.9997657236295675,0.5073646291788333,optimism,I wish I could be half as cool as that guy
+38593,anger,label probably missing,0.47921074257599483,0.9994783903361625,0.9997499085955642,0.5205391660195694,neutral,Who the fuck is that?
+13653,sadness,label probably missing,0.4479218197344238,0.9994478205985822,0.9997525301499434,0.5518307104155196,disapproval,Really that's not very sad at all
+17061,curiosity,label probably missing,0.46381385797995967,0.998970613268811,0.9995220641880707,0.535708206208111,surprise,Is this [NAME]?
+35804,embarrassment,label probably missing,0.49619051549762005,0.9986427142704282,0.9993256123574428,0.5031350968598227,neutral,Name and shame
+9186,disgust,label probably missing,0.5283858624286702,0.9985055312619364,0.9992091619642443,0.470823299535574,approval,So I'm not ugly I'm hideous
+9292,pride,label probably missing,0.6039592992979258,0.9984826456949926,0.9990821871098209,0.3951228878118951,"admiration, excitement",Wow crazy. Proud of her
+20953,disapproval,label probably missing,0.6039562600640724,0.9983494079781219,0.9990014664440539,0.39504520637998136,neutral,That’s not true*
+4347,fear,label probably missing,0.3848754450035389,0.9983150077655818,0.999350393281675,0.6144749482781361,sadness,That sounds so terrible. I'm very sorry.
+1480,caring,label probably missing,0.5353835530195572,0.998138952315056,0.9990017679205955,0.4636182149010383,approval,"Don't worry, I forgive you."
+37743,confusion,label probably missing,0.5621990686968672,0.9977512155415276,0.9987328860054888,0.4365338173086216,curiosity,Why would you doubt it dumbass?
+39339,excitement,label probably missing,0.5816207031893867,0.9975884015661038,0.9985939736521284,0.41697327046274163,surprise,Ooooh wow. 😆
+3225,approval,label probably missing,0.6139889742977569,0.9974210101142408,0.9984124343295112,0.3844234600317543,confusion,I agree with you here but I don't see how he is a sexist?
+18174,amusement,label probably spurious,0.8020118551947015,0.9972710068302956,0.0021946741255466007,0.8042065293202482,"amusement, remorse","I'm sorry for your loss ,[NAME]"
+27012,realization,label probably missing,0.7068968324690402,0.9972456897690475,0.9980476093325124,0.2911507768634721,confusion,> DJT to realize I’m not sure this is even a thing that happens.
+2944,neutral,label probably spurious,0.599968867810906,0.997208516957484,0.0016794911917134415,0.6016483590026194,neutral,nice
+8648,pride,label probably spurious,0.3939550813198247,0.9970444473653819,0.001167806492070358,0.3951228878118951,pride,Or maybe just don't have a family and you're financially secured for life.
+43328,nervousness,label probably spurious,0.3556085133575171,0.9970389627199593,0.001056097208356779,0.35666461056587384,"nervousness, neutral",i can also post pics of the receipt if anyone doesn’t believe me!!!
+1498,gratitude,label probably spurious,0.8909647937519819,0.997030766842665,0.0026533606540589715,0.8936181544060409,"gratitude, neutral",I’m gunna be the bigger man... blessings on your weekend my friend...
+28578,surprise,label probably spurious,0.5772800077569844,0.9969478427826689,0.0017673435524756078,0.5790473513094601,"fear, surprise","""From """"woohoo!!"""" to blood curdling screams in a matter of seconds."""
+29089,remorse,label probably spurious,0.7821641748417054,0.9966126482996404,0.002658470321574677,0.78482264516328,remorse,Middle school. Puberty was rough for most of us. I was a victim and a perpetrator of a lot of stupid behavior in middle school.
+11310,embarrassment,label probably spurious,0.5013803571741138,0.9965123886275065,0.0017547396857089859,0.5031350968598227,embarrassment,every time you see the snake edge and still get hit even though you *swear* you were holding downback
+33232,realization,label probably spurious,0.2901092481441059,0.9964227170176687,0.001041528719366228,0.2911507768634721,"amusement, realization",Lol at illegals paying taxes. Most do not pay any or pay very little.
+34306,annoyance,label probably missing,0.6248769631328901,0.9963864570710557,0.9977337912257191,0.372856828092829,joy,I'm so glad you're annoyed.
+14284,nervousness,label probably missing,0.6409259123941196,0.9962547108715316,0.9975905229599934,0.35666461056587384,fear,"I know I should be worried, but I am not, which makes me very worried. "
+30896,optimism,label probably spurious,0.5717901998077198,0.9959415828737779,0.0023300193298582982,0.5741202191375782,"annoyance, optimism",Oh boy you’re really going to trigger the “enlightened centrists” with this contemptuous babbling.
+18142,desire,label probably spurious,0.5052345294926465,0.995801639366082,0.0021300996861868225,0.5073646291788333,"desire, neutral",looking forward to your selfie saturday then
+38845,caring,label probably spurious,0.4616600316747413,0.9957763022172997,0.0019581832262969695,0.4636182149010383,"caring, disappointment, disapproval",movie sucks do yourself a favor and watch the Infernal Affairs trilogy they bastardized
+42330,fear,label probably spurious,0.6118349039482021,0.9957035769524342,0.002640044329934049,0.6144749482781361,"disappointment, fear",NO GOD NOOOO!
+22075,sadness,label probably spurious,0.5493572562297586,0.9955177300953431,0.002473454185760914,0.5518307104155196,sadness,Or you just get rejected and then not murdered and your anxiety worsens until you can no longer approach women or even men.
+9266,confusion,label probably spurious,0.4345157953846834,0.9953771693190232,0.0020180219239382432,0.4365338173086216,"confusion, neutral","Clearly. Sometimes, this woman baffles me with her stupidity "
+12151,disappointment,label probably missing,0.6855853801529478,0.995323378146652,0.9967787116814946,0.3111933315285468,curiosity,You were disappointed in 2014?
+38529,relief,label probably spurious,0.23635355968422048,0.9952784579115438,0.0011212472961056456,0.2374748069803261,relief,I knew it would be easy to trigger /r/movies peace out homies
+3753,excitement,label probably spurious,0.4149257718001414,0.9950896165110824,0.002047498662600259,0.41697327046274163,"excitement, joy","I feel like people kind of just... forgot about it, somehow? I watched the whole thing and it was a really really fun one"
+33994,admiration,label probably spurious,0.6801126183101475,0.9950289060564116,0.0033977944733676983,0.6835104127835152,"admiration, approval",She shows her face and doesn't hide behind fake names on Reddit .
+12940,joy,label probably spurious,0.5631977122943584,0.9950034212133902,0.0028281930312214075,0.5660259053255798,"excitement, joy","You know what I love abou you [NAME]? Octopussy. Man, I must have seen that movie... twice."
+36029,disgust,label probably spurious,0.4684220970440832,0.9948999922181859,0.0024012024914907876,0.470823299535574,disgust,Yasssss. I loathed Harry Potter. Book? Movie? Toy? Board game? Costume?
+32136,love,label probably spurious,0.8009548827774232,0.9943252171569338,0.0045711855119712165,0.8055260682893944,"admiration, love",I’m impressed.
+4079,disapproval,label probably spurious,0.3927894232848687,0.9942898102326474,0.0022557830951126304,0.39504520637998136,disapproval,Wow you just disregarded his entire comment.
+32574,anger,label probably spurious,0.5175073808362594,0.9941756828664914,0.0030317851833100103,0.5205391660195694,"anger, love",Love the almost sharingan look he gets in his eyes right before the attempt. O-O I CAN SEE!
+5450,disappointment,label probably spurious,0.30935364422835054,0.9940882817406148,0.0018396873001962414,0.3111933315285468,"amusement, disappointment, realization",Lol seriously. I mean Vardos was really cool but other than that the story was so bland and predictable.
+32567,approval,label probably spurious,0.38191621810354204,0.9934779164414025,0.002507241928212252,0.3844234600317543,approval,This tweet birthed the thread that birthed the legendary “I won best burlesque of the year 2018”. Bless.
+2774,grief,label probably spurious,0.2849500701907023,0.9934057241219221,0.0018915125297633,0.28684158272046556,"grief, sadness","Dude, she had just lost her baby, too. "
+13401,relief,label probably missing,0.7572072756962431,0.9930259126228062,0.9946820826765692,0.2374748069803261,gratitude,"Thank god, you're right. At least this idiocy didn't stick around long."
+20554,grief,label probably missing,0.7076150801953378,0.992227060706452,0.9944566629158034,0.28684158272046556,remorse,Sorry for your loss mate
+35851,curiosity,label probably spurious,0.5315185361608695,0.9921791938247556,0.004189670047241502,0.535708206208111,curiosity,"""Will I get banned if i say """"Boy I sure do love *collapsible bed word*"""""""
+11603,annoyance,label probably spurious,0.3697681566222054,0.9917161997906215,0.003088671470623574,0.372856828092829,"annoyance, approval",CNC is just the safe way to play out a rape fetish
+28238,neutral,label probably missing,0.38728511491076323,0.9722192029662301,0.9889334739133826,0.6016483590026194,realization,"oh, he was in the bathroom, they forgot to count him"
+14933,amusement,label probably missing,0.19579331721166204,0.9999992161736075,0.9999998465319102,0.8042065293202482,disapproval,Lol no.
+29095,remorse,label probably missing,0.2151749354617586,0.9999887563681448,0.9999975806250386,0.78482264516328,sadness,Sorry to hear that
+38277,love,label probably missing,0.1944552297764678,0.9999038332080127,0.9999812980658622,0.8055260682893944,neutral,He loves it.
+30031,joy,label probably missing,0.43389323172433714,0.9998136687164617,0.999919137049917,0.5660259053255798,neutral,[NAME] is happy.
+9990,admiration,label probably missing,0.3163923143415823,0.9996926506310745,0.9999027271250975,0.6835104127835152,joy,That’s awesome man!
+3180,optimism,label probably missing,0.425702386253358,0.9995834631813123,0.9998226053909361,0.5741202191375782,gratitude,Your welcome. Hope it all gets better.
+43213,surprise,label probably missing,0.42075057277409,0.9995199557074209,0.9997979240835501,0.5790473513094601,"curiosity, neutral","Wow, I was JUST wondering what the bit characters on the show make. $250? - that’s it?!"
+38333,sadness,label probably missing,0.44790480574406755,0.9994098572870576,0.9997355161595871,0.5518307104155196,remorse,I’m sorry :(
+35627,gratitude,label probably missing,0.10630154064631903,0.9992451254516995,0.9999196950523599,0.8936181544060409,joy,Thank you. I thought I was going crazy for a sec.
+20247,desire,label probably missing,0.49218869174142144,0.999093286624952,0.9995533209202547,0.5073646291788333,remorse,I'm sorry. I wish I could give you more hopeful answers.
+16721,curiosity,label probably missing,0.46367490568386915,0.9986713353191499,0.9993831118919801,0.535708206208111,neutral,Who is this?
+27164,anger,label probably missing,0.47874759499924313,0.9985124145067987,0.9992867610188125,0.5205391660195694,neutral,I dare you
+23351,disapproval,label probably missing,0.6038913712098963,0.9982421456589198,0.9989365775898776,0.39504520637998136,approval,Hmm. I don't disagree. It's unfortunate.
+33748,fear,label probably missing,0.38472100559996447,0.9979144127773063,0.9991959538781006,0.6144749482781361,disgust,He was horrible
+24157,embarrassment,label probably missing,0.49577198391821475,0.9978003694463922,0.9989070807780375,0.5031350968598227,"annoyance, disappointment","Omg lmao. Coming from [NAME] too is super embarrassing. I can't really say I feel bad for [NAME] though, he did it to himself. "
+8338,confusion,label probably missing,0.5621750760174806,0.9977086350280494,0.9987088933261022,0.4365338173086216,neutral,I sure don't
+8794,disgust,label probably missing,0.5278980024052689,0.9975836085412776,0.9987213019408429,0.470823299535574,anger,Those women are the worst.
+34837,caring,label probably missing,0.5348744858475212,0.9971898761417439,0.9984927007485594,0.4636182149010383,optimism,"I just want to say once you take action, stay safe!! Good luck. It’s the best to leave. "
+6777,amusement,label probably spurious,0.8018448763578322,0.9970633750456961,0.0023616529624159773,0.8042065293202482,"amusement, annoyance","Fly, you fool!"
+36387,excitement,label probably missing,0.5813044919167965,0.9970460400300534,0.998277762379538,0.41697327046274163,surprise,Happy cake day!!!

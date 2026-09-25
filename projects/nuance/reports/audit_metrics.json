@@ -1,0 +1,208 @@
+{
+  "flagged": 300,
+  "family_breakdown": {
+    "flags_considered": 159,
+    "same_ekman_family": 68,
+    "share_same_family": 0.4276729559748428
+  },
+  "worst_labels": [
+    {
+      "label": "relief",
+      "support": 153,
+      "threshold": 0.2374748069803261,
+      "spurious": 101,
+      "missing": 342,
+      "disputed_share_of_positives": 0.6601307189542484
+    },
+    {
+      "label": "grief",
+      "support": 77,
+      "threshold": 0.28684158272046556,
+      "spurious": 50,
+      "missing": 103,
+      "disputed_share_of_positives": 0.6493506493506493
+    },
+    {
+      "label": "disappointment",
+      "support": 1269,
+      "threshold": 0.3111933315285468,
+      "spurious": 806,
+      "missing": 2544,
+      "disputed_share_of_positives": 0.6351457840819543
+    },
+    {
+      "label": "realization",
+      "support": 1110,
+      "threshold": 0.2911507768634721,
+      "spurious": 703,
+      "missing": 2495,
+      "disputed_share_of_positives": 0.6333333333333333
+    },
+    {
+      "label": "nervousness",
+      "support": 164,
+      "threshold": 0.35666461056587384,
+      "spurious": 96,
+      "missing": 158,
+      "disputed_share_of_positives": 0.5853658536585366
+    },
+    {
+      "label": "approval",
+      "support": 2939,
+      "threshold": 0.3844234600317543,
+      "spurious": 1703,
+      "missing": 4318,
+      "disputed_share_of_positives": 0.5794487921061585
+    }
+  ],
+  "examples": [
+    {
+      "row": 39149,
+      "label": "amusement",
+      "kind": "label probably missing",
+      "confidence": 0.19579347065993302,
+      "rank_score": 0.999999999898777,
+      "p": 0.9999999999801812,
+      "threshold": 0.8042065293202482,
+      "given_labels": "joy",
+      "text": "Lol!!"
+    },
+    {
+      "row": 4126,
+      "label": "remorse",
+      "kind": "label probably missing",
+      "confidence": 0.21517735481279354,
+      "rank_score": 0.9999999998888061,
+      "p": 0.9999999999760736,
+      "threshold": 0.78482264516328,
+      "given_labels": "sadness",
+      "text": "I'm so sorry"
+    },
+    {
+      "row": 15733,
+      "label": "love",
+      "kind": "label probably missing",
+      "confidence": 0.1944739313064311,
+      "rank_score": 0.9999999979217036,
+      "p": 0.9999999995958255,
+      "threshold": 0.8055260682893944,
+      "given_labels": "disapproval",
+      "text": "i don't love love love it"
+    },
+    {
+      "row": 35538,
+      "label": "gratitude",
+      "kind": "label probably missing",
+      "confidence": 0.1063818453309402,
+      "rank_score": 0.9999999975275956,
+      "p": 0.9999999997369811,
+      "threshold": 0.8936181544060409,
+      "given_labels": "curiosity",
+      "text": "Why thank you"
+    },
+    {
+      "row": 31761,
+      "label": "sadness",
+      "kind": "label probably missing",
+      "confidence": 0.44816904249301515,
+      "rank_score": 0.9999994486648884,
+      "p": 0.9999997529085347,
+      "threshold": 0.5518307104155196,
+      "given_labels": "neutral",
+      "text": "You are a sad person"
+    },
+    {
+      "row": 2190,
+      "label": "embarrassment",
+      "kind": "label probably missing",
+      "confidence": 0.49686457060198697,
+      "rank_score": 0.999999330727149,
+      "p": 0.9999996674618097,
+      "threshold": 0.5031350968598227,
+      "given_labels": "neutral",
+      "text": "Shame.."
+    },
+    {
+      "row": 27954,
+      "label": "anger",
+      "kind": "label probably missing",
+      "confidence": 0.47945979510962466,
+      "rank_score": 0.9999978332519941,
+      "p": 0.9999989611291941,
+      "threshold": 0.5205391660195694,
+      "given_labels": "neutral",
+      "text": "FUCK YOU"
+    },
+    {
+      "row": 15694,
+      "label": "pride",
+      "kind": "label probably missing",
+      "confidence": 0.6048757034306125,
+      "rank_score": 0.9999976710021522,
+      "p": 0.9999985912425076,
+      "threshold": 0.3951228878118951,
+      "given_labels": "admiration",
+      "text": "so proud of you!"
+    },
+    {
+      "row": 20003,
+      "label": "joy",
+      "kind": "label probably missing",
+      "confidence": 0.4339728332037621,
+      "rank_score": 0.9999970932120753,
+      "p": 0.999998738529342,
+      "threshold": 0.5660259053255798,
+      "given_labels": "gratitude",
+      "text": "Glad your happy but also what"
+    },
+    {
+      "row": 1670,
+      "label": "fear",
+      "kind": "label probably missing",
+      "confidence": 0.3855233655180016,
+      "rank_score": 0.9999956262145487,
+      "p": 0.9999983137961377,
+      "threshold": 0.6144749482781361,
+      "given_labels": "neutral",
+      "text": "dont be scared"
+    },
+    {
+      "row": 32045,
+      "label": "admiration",
+      "kind": "label probably missing",
+      "confidence": 0.3164818838033344,
+      "rank_score": 0.999975659821171,
+      "p": 0.9999922965868496,
+      "threshold": 0.6835104127835152,
+      "given_labels": "excitement",
+      "text": "It\u2019s amazing."
+    },
+    {
+      "row": 22162,
+      "label": "grief",
+      "kind": "label probably missing",
+      "confidence": 0.7131405785297428,
+      "rank_score": 0.9999749862732327,
+      "p": 0.9999821612502083,
+      "threshold": 0.28684158272046556,
+      "given_labels": "neutral",
+      "text": "YOU DIED"
+    }
+  ],
+  "retrain_without_suspects": {
+    "rows_dropped": 14685,
+    "share_of_training_set": 0.33828610919143054,
+    "macro_f1_before": 0.4720818102359772,
+    "macro_f1_after": 0.4735841751098633,
+    "paired": {
+      "statistic": "macro_f1",
+      "a": 0.4735841751098633,
+      "b": 0.4720818102359772,
+      "difference": 0.0015023648738861084,
+      "ci_low": -0.01293613538146019,
+      "ci_high": 0.014089120924472795,
+      "p_a_better": 0.577,
+      "significant": false
+    }
+  }
+}

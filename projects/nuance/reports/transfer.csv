@@ -1,0 +1,9 @@
+model,evaluated_on,emoticons,n,accuracy,precision,recall,f1
+wordchar logistic (trained on Reddit),Reddit (in-domain),n/a,3210,0.8679127725856698,0.9116135662898253,0.8756169792694966,0.8932527693857
+wordchar logistic (trained on Reddit),Twitter (out-of-domain),stripped,10000,0.6656,0.6375415282392026,0.7676,0.696551724137931
+wordchar logistic (trained on Reddit),Twitter (out-of-domain),left in (leaky),10000,0.7943,0.7586570574793461,0.8632,0.8075591729815699
+VADER lexicon (no training),Reddit (in-domain),n/a,3210,0.8174454828660436,0.8257918552036199,0.9007897334649556,0.8616619452313503
+VADER lexicon (no training),Twitter (out-of-domain),stripped,10000,0.6253,0.5797175213131441,0.9112,0.708608756512948
+VADER lexicon (no training),Twitter (out-of-domain),left in (leaky),10000,0.8202,0.7546929685014317,0.9488,0.8406875775296827
+majority class,Reddit (in-domain),n/a,3210,0.6311526479750779,0.6311526479750779,1.0,0.7738731856378915
+majority class,Twitter (out-of-domain),n/a,10000,0.5,0.5,1.0,0.6666666666666666

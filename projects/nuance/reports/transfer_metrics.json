@@ -1,0 +1,91 @@
+{
+  "leakage": {
+    "tweets": 10000,
+    "mean_emoticons_per_tweet": 1.4178,
+    "share_decidable_by_emoticon_alone": 0.9783,
+    "accuracy_of_emoticon_rule_where_it_fires": 1.0,
+    "accuracy_of_emoticon_rule_overall": 0.9783
+  },
+  "results": [
+    {
+      "model": "wordchar logistic (trained on Reddit)",
+      "evaluated_on": "Reddit (in-domain)",
+      "emoticons": "n/a",
+      "n": 3210,
+      "accuracy": 0.8679127725856698,
+      "precision": 0.9116135662898253,
+      "recall": 0.8756169792694966,
+      "f1": 0.8932527693857
+    },
+    {
+      "model": "wordchar logistic (trained on Reddit)",
+      "evaluated_on": "Twitter (out-of-domain)",
+      "emoticons": "stripped",
+      "n": 10000,
+      "accuracy": 0.6656,
+      "precision": 0.6375415282392026,
+      "recall": 0.7676,
+      "f1": 0.696551724137931
+    },
+    {
+      "model": "wordchar logistic (trained on Reddit)",
+      "evaluated_on": "Twitter (out-of-domain)",
+      "emoticons": "left in (leaky)",
+      "n": 10000,
+      "accuracy": 0.7943,
+      "precision": 0.7586570574793461,
+      "recall": 0.8632,
+      "f1": 0.8075591729815699
+    },
+    {
+      "model": "VADER lexicon (no training)",
+      "evaluated_on": "Reddit (in-domain)",
+      "emoticons": "n/a",
+      "n": 3210,
+      "accuracy": 0.8174454828660436,
+      "precision": 0.8257918552036199,
+      "recall": 0.9007897334649556,
+      "f1": 0.8616619452313503
+    },
+    {
+      "model": "VADER lexicon (no training)",
+      "evaluated_on": "Twitter (out-of-domain)",
+      "emoticons": "stripped",
+      "n": 10000,
+      "accuracy": 0.6253,
+      "precision": 0.5797175213131441,
+      "recall": 0.9112,
+      "f1": 0.708608756512948
+    },
+    {
+      "model": "VADER lexicon (no training)",
+      "evaluated_on": "Twitter (out-of-domain)",
+      "emoticons": "left in (leaky)",
+      "n": 10000,
+      "accuracy": 0.8202,
+      "precision": 0.7546929685014317,
+      "recall": 0.9488,
+      "f1": 0.8406875775296827
+    },
+    {
+      "model": "majority class",
+      "evaluated_on": "Reddit (in-domain)",
+      "emoticons": "n/a",
+      "n": 3210,
+      "accuracy": 0.6311526479750779,
+      "precision": 0.6311526479750779,
+      "recall": 1.0,
+      "f1": 0.7738731856378915
+    },
+    {
+      "model": "majority class",
+      "evaluated_on": "Twitter (out-of-domain)",
+      "emoticons": "n/a",
+      "n": 10000,
+      "accuracy": 0.5,
+      "precision": 0.5,
+      "recall": 1.0,
+      "f1": 0.6666666666666666
+    }
+  ]
+}

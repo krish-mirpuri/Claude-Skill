@@ -1,0 +1,71 @@
+# Single source of truth. Anything that can move a reported number lives here.
+seed: 20260925
+
+data:
+  goemotions_base: "https://raw.githubusercontent.com/google-research/google-research/master/goemotions/data"
+  # Checksums of the copies this project was built and validated against.
+  goemotions_files:
+    train.tsv: "1c254a142be5c00e80d819b9ae1bbd36d94b2eeb8f4b1271846508d57e57d9c5"
+    dev.tsv: "575489c079c9de1097062a01738f998590d6b7ead66dd1c9fd1d2ba01fd8bc62"
+    test.tsv: "0587b2dd8b27b97352adbfc3fb083d46005c8946657fdc2b1ca8b1cc7f1f8be4"
+    emotions.txt: "45c3ef86782d2a4d7fedcd6d8c111aa0d0e94720689bd164fac94fefb4495a89"
+    ekman_mapping.json: "d6b1fea382917c1685c42e1324a0344106be9390f52a3850ce032656d103a328"
+    sentiment_mapping.json: "801f6f028082141bd38541a4b14d65b33bdc55d29c7b2aaa029fefecf206f76b"
+  twitter_url: "https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/corpora/twitter_samples.zip"
+  twitter_sha256: "aac71c20e1e05003b7812321936c5635dfede61902aca2b94419a1124979c6dd"
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+
+features:
+  # Short, informal text: word bigrams carry the content, character n-grams
+  # pick up the spelling noise and emphasis that word features miss.
+  word:
+    ngram_range: [1, 2]
+    min_df: 2
+    sublinear_tf: true
+  char:
+    enabled: true
+    ngram_range: [3, 5]
+    min_df: 3
+    max_features: 300000
+  lowercase: true
+
+model:
+  C: 4.0
+  class_weight: "balanced"
+  max_iter: 1000
+  n_folds: 5              # out-of-fold predictions, used for thresholds and noise
+
+thresholds:
+  grid_start: 0.05
+  grid_stop: 0.96
+  grid_step: 0.01
+  # Every strategy is evaluated; `report` is the one the headline uses.
+  report: "flat"
+
+evaluation:
+  bootstrap_samples: 2000
+  # A label needs at least this many test positives before a per-label F1 is
+  # treated as a measurement rather than a rumour.
+  min_support_measurable: 50
+  alpha: 0.05
+
+noise:
+  # Confident learning: how many suspected label errors to surface.
+  top_k: 300
+
+transfer:
+  # NLTK's tweet labels come from emoticons that are still in the text.
+  # Leaving them in turns the transfer test into emoticon detection.
+  strip_emoticons: true
+  max_per_class: 5000
+
+active:
+  budgets: [500, 1000, 2000, 4000, 8000, 16000, 32000, 43410]
+  strategies: ["random", "uncertainty"]
+  seeds: 3
+
+paths:
+  models_dir: "models"
+  reports_dir: "reports"
+  figures_dir: "reports/figures"

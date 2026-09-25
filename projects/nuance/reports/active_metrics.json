@@ -1,0 +1,18 @@
+{
+  "budget_to_reach_95pct": [
+    {
+      "strategy": "random",
+      "full_data_macro_f1": 0.4504064917564392,
+      "target": 0.4278861671686172,
+      "budget_reached": 32000,
+      "share_of_corpus": 0.73715733701912
+    },
+    {
+      "strategy": "uncertainty",
+      "full_data_macro_f1": 0.4504064917564392,
+      "target": 0.4278861671686172,
+      "budget_reached": 32000,
+      "share_of_corpus": 0.73715733701912
+    }
+  ]
+}

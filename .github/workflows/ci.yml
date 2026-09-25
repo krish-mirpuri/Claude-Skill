@@ -11,11 +11,17 @@ concurrency:
 
 jobs:
   check:
+    name: ${{ matrix.project }} · py${{ matrix.python-version }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
+        project: [overbook, nuance]
         python-version: ["3.10", "3.11", "3.12"]
+
+    defaults:
+      run:
+        working-directory: projects/${{ matrix.project }}
 
     steps:
       - uses: actions/checkout@v4
@@ -24,51 +30,60 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           cache: pip
-          cache-dependency-path: pyproject.toml
+          cache-dependency-path: projects/${{ matrix.project }}/pyproject.toml
 
       - name: Install
         run: |
           python -m pip install --upgrade pip
-          pip install -e ".[serve,app,explain,dev]"
+          pip install -e ".[serve,app,dev]"
 
       - name: Lint
         run: |
           ruff check .
           ruff format --check .
 
-      # The suite builds its own synthetic extract, so this needs no network
-      # and no 17 MB download. Tests that require trained artifacts skip.
+      # Both suites build their own fixture data, so this needs no network and
+      # no downloads. Tests that require trained artifacts skip.
       - name: Test
-        run: pytest tests/ -q --cov=overbook --cov-report=term-missing
+        run: pytest tests/ -q --cov --cov-report=term-missing
 
   pipeline:
-    # Proves the documented numbers can actually be reproduced from scratch.
+    name: ${{ matrix.project }} end to end
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [overbook, nuance]
+
+    defaults:
+      run:
+        working-directory: projects/${{ matrix.project }}
+
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: pip
-          cache-dependency-path: pyproject.toml
+          cache-dependency-path: projects/${{ matrix.project }}/pyproject.toml
 
       - name: Install
         run: |
           python -m pip install --upgrade pip
-          pip install -e ".[serve,app,explain,dev]"
+          pip install -e ".[serve,app,dev]"
 
-      - name: Run the whole pipeline
-        run: overbook all
+      # Proves the documented numbers can be reproduced from a clean checkout.
+      - name: Run the pipeline
+        run: ${{ matrix.project }} all
 
       - name: Test against the trained artifacts
         run: pytest tests/ -q
 
-      - name: Publish the generated report
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
-          name: results
+          name: ${{ matrix.project }}-results
           path: |
-            reports/RESULTS.md
-            reports/*.csv
-            reports/*.json
-            reports/figures/*.png
+            projects/${{ matrix.project }}/reports/RESULTS.md
+            projects/${{ matrix.project }}/reports/*.csv
+            projects/${{ matrix.project }}/reports/*.json
+            projects/${{ matrix.project }}/reports/figures/*.png

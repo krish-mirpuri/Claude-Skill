@@ -1,16 +1,3 @@
-# Data & models are reproducible artifacts, not source.
-data/raw/*
-data/interim/*
-data/processed/*
-models/*
-!data/raw/.gitkeep
-!data/interim/.gitkeep
-!data/processed/.gitkeep
-!models/.gitkeep
-
-# Generated reports (figures are committed; scratch is not)
-reports/**/*.tmp
-
 # Python
 __pycache__/
 *.py[cod]
