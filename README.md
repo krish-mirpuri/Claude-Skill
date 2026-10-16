@@ -1,38 +1,16 @@
 # Data science projects
 
-Two end-to-end projects on real public data. Each is self-contained — its own
-environment, pipeline, tests and README — and each runs from a clean checkout
-in a couple of minutes:
+An end-to-end project on real public data. It is self-contained — its own
+environment, pipeline, tests and README — and runs from a clean checkout in a
+couple of minutes:
 
 ```bash
-cd projects/<name> && make setup && make all
+cd projects/nuance && make setup && make all
 ```
 
-They are deliberately about different halves of the job.
-
----
-
-## [`projects/overbook`](projects/overbook) — prediction → decision
-
-**Hotels cancel-proof their revenue by selling rooms they don't have. This works
-out how many.**
-
-119,210 real bookings from two Portuguese hotels. Predicts per-booking
-cancellation risk, calibrates it, and turns it into a nightly authorisation
-limit whose value is measured **in euros** on arrivals the model never saw.
-
-- Against the pooled-rate rule hotels actually use: **+426 € per hotel-night**
-  (95% CI +312…+554), closing **82%** of the gap to perfect foresight versus
-  60% — with a quarter of the walked guests.
-- Reported straight: against the *same model* with the decision collapsed to a
-  mean, it is **−32 €/night**. Most of the gain is the calibrated
-  probabilities, not the optimiser on top.
-- Two defects found during evaluation and fixed with past-only information: the
-  calibrator drifts as the cancellation rate climbs 33.5% → 41.2%, and arrivals
-  are twice as dispersed as independence implies.
-
-*Exact Poisson-binomial arithmetic · asymmetric-loss optimisation · rolling
-recalibration · leakage blocklist enforced at runtime · 92 tests.*
+> **Moved:** `projects/overbook` — hotel cancellation risk turned into a
+> revenue-optimal overbooking limit — now lives in its own repository:
+> [krish-mirpuri/Hotel_Booking_Forecasting](https://github.com/krish-mirpuri/Hotel_Booking_Forecasting).
 
 ---
 
@@ -62,24 +40,24 @@ scratch · domain transfer against VADER · annotation-budget curves · 80 tests
 
 ---
 
-## What they have in common
+## Conventions
 
-Both are built around the same conviction: **the model is the easy part, and
-the number you report about it is where the work is.** So both:
+The project is built around one conviction: **the model is the easy part, and
+the number you report about it is where the work is.** So it:
 
-- split on time or on a real distribution shift, never at random;
-- fit every decision rule (thresholds, calibrators, category vocabularies) on
-  data that is entitled to see it, and prove it with tests;
-- attach uncertainty to the headline, and compare systems in a way that has
+- splits on time or on a real distribution shift, never at random;
+- fits every decision rule (thresholds, calibrators, category vocabularies) on
+  data that is entitled to see it, and proves it with tests;
+- attaches uncertainty to the headline, and compares systems in a way that has
   the power to resolve a difference;
-- sweep the assumptions they cannot measure rather than asserting them;
-- generate their results document from the artifacts on disk, so no number in
-  a README can drift from what the code produced;
-- keep the result that did not go my way in the headline.
+- sweeps the assumptions it cannot measure rather than asserting them;
+- generates its results document from the artifacts on disk, so no number in a
+  README can drift from what the code produced;
+- keeps the result that did not go my way in the headline.
 
-Shared conventions: `make setup` / `make all` / `make check` in every project,
-a `conf/config.yaml` holding anything that can move a reported number, a
+Shared conventions: `make setup` / `make all` / `make check`, a
+`conf/config.yaml` holding anything that can move a reported number, a
 `reports/` directory of generated CSVs, JSON and figures, a FastAPI service and
-a dashboard, Docker, and CI running both projects across Python 3.10–3.12.
+a dashboard, Docker, and CI across Python 3.10–3.12.
 
 MIT licensed.
