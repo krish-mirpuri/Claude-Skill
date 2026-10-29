@@ -247,8 +247,8 @@ def block(r0,label,kind,fill=None,bold=False):
             elif m=="ASP":          f=f'=IFERROR(IF({S("L")}=0,"",{S("M")}/{S("L")}),"")'
             elif m=="Net Revenue":  f=f'=IFERROR(IF({S("Q")}=0,"",{S("Q")}),"")'
             elif m=="COGS (incl GST)": f=f'=IFERROR(IF({S("Y")}=0,"",{S("Y")}),"")'
-            elif m=="GM":           f=f'=IFERROR(IF({S("Q")}=0,"",{S("Q")}-{S("Y")}),"")'
-            else:                   f=f'=IFERROR(IF({S("Q")}=0,"",({S("Q")}-{S("Y")})/{S("Q")}),"")'
+            elif m=="GM":           f=f'=IFERROR(IF({S("Y")}=0,"",{S("Q")}-{S("Y")}),"")'
+            else:                   f=f'=IFERROR(IF({S("Y")}=0,"",({S("Q")}-{S("Y")})/{S("Q")}),"")'
             c=ws.cell(row=r,column=ci,value=f)
             c.number_format=IF_ if m=="QTY" else (PF if m=="GM %" else MF)
             if fill: c.fill=fill
