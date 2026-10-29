@@ -5,7 +5,7 @@ from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.utils.cell import quote_sheetname as Q
 
-SEP, AUG, MASTER, COGSF, OUT = sys.argv[1:6]
+SEP, AUG, MASTER, COGSF, LBF, OUT = sys.argv[1:7]
 DUMP, MAP, DD, CV, SOHT = ("Tira Ajio Sales Dump", "TIRA AJIO MAPPER", "Dropdown",
                            "Cat.View Tira Ajio", "SOH Tira Ajio")
 
@@ -19,6 +19,12 @@ soh_aug = {str(r[0]).strip(): (str(r[1]).strip(), str(r[3]).strip(), r[4])
            for r in grab(AUG,"SOH")[2:] if r[0]}                       # sap -> (lb, desc, stock)
 soh_sep = {str(r[0]).strip(): r[-1] for r in grab(SEP,"SOH")[2:] if r[0]}   # lb -> stock
 lb2sap  = {v[0]: k for k, v in soh_aug.items()}
+lb_extra = {}                      # SAP -> LB, for SKUs not yet carrying stock
+with open(LBF) as f:
+    for row in csv.reader(f, delimiter="\t"):
+        if len(row) >= 2 and row[0].strip() and row[1].strip():
+            lb_extra[row[0].strip()] = row[1].strip()
+            lb2sap[row[1].strip()] = row[0].strip()
 tira_sep, tira_aug = grab(SEP,"Tira Sales")[1:], grab(AUG,"Tira Sales")[1:]
 ajio_sep, ajio_aug = grab(SEP,"Ajio Sales")[1:], grab(AUG,"Ajio Sales")[1:]
 tira_cat = {str(r[2]).strip(): (r[3], r[5], r[6], r[7]) for r in tira_sep if r[2]}
@@ -97,7 +103,8 @@ for src in (ajio_sep, ajio_aug):
         if not r[0]: continue
         sap = str(r[1]).strip(); a = ajio_cat.get(sap, ("","",""))
         rows.append(dict(plat="Ajio", date=dd(r[0]), sap=sap,
-            lb=soh_aug.get(sap,("","",None))[0], name=(r[2] if wide else a[0]), evt="BAU",
+            lb=soh_aug.get(sap,("","",None))[0] or lb_extra.get(sap,""),
+            name=(r[2] if wide else a[0]), evt="BAU",
             l1=(r[4] if wide else a[1]), l2=(r[5] if wide else a[2]), l3="",
             qty=float(r[7] if wide else r[3]), gmv=float(r[6] if wide else r[2])))
 rows.sort(key=lambda x: (x["date"], x["plat"], order.get(x["sap"], 999)))
@@ -133,9 +140,10 @@ head(ws,["ARTICLE (SAP)","SKU ID","LB CODE (Tira)","Short Name","Product Name (m
          "Tira L1","Tira L2","Tira L3","Ajio Vertical","Ajio Brick","SOH Aug-26","SOH Sep-26"])
 for i,(sku,sap,name,mrp,land) in enumerate(master,2):
     lb,desc,st_a = soh_aug.get(sap,("","",None))
+    if not lb: lb = lb_extra.get(sap,"")
     short,cat,tag = TAX.get(sap,("","",""))
     t=tira_cat.get(lb,("","","","")); a=ajio_cat.get(sap,("","",""))
-    live = bool(lb)
+    live = st_a is not None
     cw, cg = cogs.get(sku, (None, None))
     V=[sap,sku,lb,short,name,cat,tag,mrp,land,None,cw,None,cg,
        t[1],t[2],t[3],a[1],a[2],st_a,soh_sep.get(lb)]
@@ -156,7 +164,7 @@ for c,w in zip(["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P",
                (15,9,14,30,42,13,13,9,13,10,13,8,13,13,16,18,13,21,11,11)):
     ws.column_dimensions[c].width=w
 ws.cell(row=LM+2,column=1,value="Orange = sourced from the Meesho COGS sheet. GST % (col L) is derived from the two COGS columns, so it shows the rate actually embedded in them.").font=Font(italic=True,color="C00000")
-ws.cell(row=LM+3,column=1,value="Grey rows = SKUs with no LB code / no SOH yet (not live on Tira). They map automatically once they start selling.").font=Font(italic=True,color="7F7F7F")
+ws.cell(row=LM+3,column=1,value="Grey rows = SKUs carrying no stock yet. Their LB codes are already mapped, so they resolve the moment they start selling.").font=Font(italic=True,color="7F7F7F")
 
 # ================= SOH =================
 ws=wb.create_sheet(SOHT); head(ws,["ARTICLE (SAP)","LB CODE","Short Name","SOH Aug-26","SOH Sep-26","Change"],3)
@@ -279,7 +287,9 @@ for c,w in zip(["A","B","C"],(14,30,16)): ws.column_dimensions[c].width=w
 for ci in range(CM,NC+1): ws.column_dimensions[L(ci)].width=11
 
 wb.save(OUT)
-print(f"master SKUs    : {len(master)}   live(with LB/SOH): {sum(1 for _,s,*_ in master if soh_aug.get(s))}")
+print(f"master SKUs    : {len(master)}   carrying stock: {sum(1 for _,s,*_ in master if soh_aug.get(s))}")
+_nolb=[m[1] for m in master if not (soh_aug.get(m[1],("",))[0] or lb_extra.get(m[1]))]
+print(f"LB codes mapped: {len(master)-len(_nolb)}/{len(master)}   still unmapped: {_nolb or 'none'}")
 print(f"merged rows    : {len(rows)}  (Tira {sum(1 for x in rows if x['plat']=='Tira')}, Ajio {sum(1 for x in rows if x['plat']=='Ajio')})")
 print(f"unmapped SAP   : {sorted({x['sap'] for x in rows if x['sap'] not in {m[1] for m in master}})}")
 print(f"blank SAP rows : {sum(1 for x in rows if not x['sap'])}")

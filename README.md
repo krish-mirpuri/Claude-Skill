@@ -6,7 +6,7 @@ Rebuilds the Reliance (Tira + Ajio) reporting tabs that mirror the Meesho
 ## Usage
 
 ```bash
-python3 scripts/build_tira_ajio.py <sep.xlsx> <aug.xlsx> <master.tsv> <cogs.tsv> <out.xlsx>
+python3 scripts/build_tira_ajio.py <sep.xlsx> <aug.xlsx> <master.tsv> <cogs.tsv> <lb_bridge.tsv> <out.xlsx>
 ```
 
 Monthly refresh: drop the new `Tuco_Kids_<Mon>_Sales_SOH.xlsx` in as the first
@@ -35,8 +35,9 @@ It is not committed — it carries pricing.
 ## Join key
 
 `ARTICLE (SAP)` (`4948…`) is the spine. Ajio reports it directly as `Article`;
-Tira reports `ItemCode` (the LB code, `1207…`), bridged via the SAP↔LB pairs in
-the August `SOH` tab. Every derived figure is a formula over the dump, so
+Tira reports `ItemCode` (the LB code, `1207…` or `1212…`), bridged via the SAP↔LB
+pairs in the August `SOH` tab, supplemented by `lb_bridge.tsv` for SKUs
+that carry no stock yet and so appear in no SOH export. Every derived figure is a formula over the dump, so
 editing the mapper reflows the whole workbook.
 
 ## Known gaps
@@ -55,3 +56,5 @@ editing the mapper reflows the whole workbook.
 - Landing Rate is still carried in the mapper for reference but no longer
   drives any figure.
 - Neither platform reports customer state, so there is no `ZONE` column.
+- `494836854` (Anti Dull Skin Facewash) has no LB code in any source, so Tira
+  sales of it would not resolve. Every other SKU is mapped.
