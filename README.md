@@ -30,7 +30,7 @@ It is not committed — it carries pricing.
 | `TIRA AJIO MAPPER` | One row per SKU: SAP + LB + internal SKU ID, category, MRP, landing rate, COGS, SOH |
 | `SOH Tira Ajio` | Aug vs Sep stock on hand with movement |
 | `Tira Ajio Sales Dump` | Merged Tira + Ajio line items, normalised to one schema |
-| `Cat.View Tira Ajio` | GMV / QTY / ASP / Net Revenue / COGS / GM / GM% by month, week and day |
+| `Cat.View Tira Ajio` | GMV / QTY / ASP / Net Revenue / COGS / GM / GM% by month |
 
 ## Join key
 

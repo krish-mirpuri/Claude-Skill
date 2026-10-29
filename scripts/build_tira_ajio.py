@@ -208,11 +208,12 @@ for c,w in zip(["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P",
 
 # ================= CAT. VIEW =================
 ws=wb.create_sheet(CV)
-months=["Aug 2026","Sep 2026"]
 d0,d1=min(r["date"] for r in rows),max(r["date"] for r in rows)
-days=[d0+dt.timedelta(days=k) for k in range((d1-d0).days+1)]
-w0=d0-dt.timedelta(days=d0.weekday()); weeks=[]; w=w0
-while w<=d1: weeks.append(w); w+=dt.timedelta(days=7)
+months=[]                      # monthly grain only, derived from the data
+for r in sorted(rows,key=lambda x:x["date"]):
+    m=r["date"].strftime("%b %Y")
+    if m not in months: months.append(m)
+weeks,days=[],[]
 ws["A1"]="Cat. View — Tira + Ajio"; ws["A1"].font=Font(bold=True,size=13)
 ws["B2"]="Platform:"; ws["B2"].font=Font(bold=True)
 ws["C2"]="All"; ws["C2"].fill=INP; ws["C2"].font=Font(bold=True)
@@ -274,7 +275,7 @@ print(f"merged rows    : {len(rows)}  (Tira {sum(1 for x in rows if x['plat']=='
 print(f"unmapped SAP   : {sorted({x['sap'] for x in rows if x['sap'] not in {m[1] for m in master}})}")
 print(f"blank SAP rows : {sum(1 for x in rows if not x['sap'])}")
 print(f"no landing rate: {sorted({m[1] for m in master if m[4] is None})}")
-print(f"dates          : {d0} -> {d1} | {len(days)} days, {len(weeks)} weeks, {len(months)} months")
+print(f"dates          : {d0} -> {d1} | months: {months}")
 print(f"dump           : rows 2..{LD}, cols A..AA")
 print(f"mapper         : rows 2..{LM}")
 print(f"cat.view       : rows {HR+1}..{LC}, cols A..{L(NC)}  ({len(sold)} SKUs sold)")
