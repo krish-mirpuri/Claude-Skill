@@ -172,7 +172,7 @@ for c,w in zip("ABCDEF",(15,13,30,12,12,11)): ws.column_dimensions[c].width=w
 ws=wb.create_sheet(DUMP)
 head(ws,["PLATFORM","Order Date","ARTICLE (SAP)","LB CODE","SKU ID","Product Name (platform)",
          "Short Name","Event Type","Platform L1","Platform L2","Platform L3",
-         "Quantity","GMV","ASP","MRP","Landing Rate","Net Revenue","Platform Margin","Margin %",
+         "Quantity","MRP","GMV","Booked Revenue","ASP","Discount %",
          "WEEK","MONTH","CATEGORY","TAGS","COGS","COGS (incl GST)","GM","GM %"])
 MR=f"{Q(MAP)}!$A$2:$T${LM}"
 def vl(i,col): return f'IFERROR(VLOOKUP($C{i},{MR},{col},0),"")'
@@ -186,24 +186,24 @@ for i,r in enumerate(rows,2):
     ws.cell(row=i,column=9,value=r["l1"]); ws.cell(row=i,column=10,value=r["l2"])
     ws.cell(row=i,column=11,value=r["l3"])
     ws.cell(row=i,column=12,value=r["qty"]).number_format=IF_
-    ws.cell(row=i,column=13,value=round(r["gmv"],2)).number_format=MF
+    ws.cell(row=i,column=15,value=round(r["gmv"],2)).number_format=MF   # platform booked value
     for col,f,fmt in (
-        (14,f'=IFERROR($M{i}/$L{i},"")',MF), (15,f'={vl(i,8)}',MF), (16,f'={vl(i,9)}',MF),
-        (17,f'=IFERROR(IF($P{i}="","",$L{i}*$P{i}),"")',MF),
-        (18,f'=IFERROR(IF($Q{i}="","",$M{i}-$Q{i}),"")',MF),
-        (19,f'=IFERROR(IF($Q{i}="","",$R{i}/$M{i}),"")',PF),
-        (20,f'=$B{i}-WEEKDAY($B{i},3)',DF), (21,f'=TEXT($B{i},"mmm yyyy")',None),
-        (22,f'={vl(i,6)}',None), (23,f'={vl(i,7)}',None),
-        (24,f'=IFERROR(IF(VLOOKUP($C{i},{MR},11,0)="","",$L{i}*VLOOKUP($C{i},{MR},11,0)),"")',MF),
-        (25,f'=IFERROR(IF(VLOOKUP($C{i},{MR},13,0)="","",$L{i}*VLOOKUP($C{i},{MR},13,0)),"")',MF),
-        (26,f'=IFERROR(IF(OR($Q{i}="",$Y{i}=""),"",$Q{i}-$Y{i}),"")',MF),
-        (27,f'=IFERROR(IF($Z{i}="","",$Z{i}/$Q{i}),"")',PF)):
+        (13,f'={vl(i,8)}',MF),                                            # MRP from mapper
+        (14,f'=IFERROR(IF($M{i}="","",$L{i}*$M{i}),"")',MF),              # GMV = qty x MRP
+        (16,f'=IFERROR($O{i}/$L{i},"")',MF),                              # ASP on booked value
+        (17,f'=IFERROR(IF($N{i}=0,"",1-$O{i}/$N{i}),"")',PF),             # discount vs MRP
+        (18,f'=$B{i}-WEEKDAY($B{i},3)',DF), (19,f'=TEXT($B{i},"mmm yyyy")',None),
+        (20,f'={vl(i,6)}',None), (21,f'={vl(i,7)}',None),
+        (22,f'=IFERROR(IF(VLOOKUP($C{i},{MR},11,0)="","",$L{i}*VLOOKUP($C{i},{MR},11,0)),"")',MF),
+        (23,f'=IFERROR(IF(VLOOKUP($C{i},{MR},13,0)="","",$L{i}*VLOOKUP($C{i},{MR},13,0)),"")',MF),
+        (24,f'=IFERROR(IF($W{i}="","",$N{i}-$W{i}),"")',MF),              # GM off GMV(MRP)
+        (25,f'=IFERROR(IF($X{i}="","",$X{i}/$N{i}),"")',PF)):
         c=ws.cell(row=i,column=col,value=f)
         if fmt: c.number_format=fmt
-LD=1+len(rows); ws.auto_filter.ref=f"A1:AA{LD}"
+LD=1+len(rows); ws.auto_filter.ref=f"A1:Y{LD}"
 for c,w in zip(["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T",
-                "U","V","W","X","Y","Z","AA"],
-               (9,12,15,12,9,32,28,12,14,21,21,9,11,10,9,12,12,14,10,12,11,13,13,11,15,11,8)):
+                "U","V","W","X","Y"],
+               (9,12,15,12,9,32,28,12,14,21,21,9,9,11,14,10,10,12,11,13,13,11,15,11,8)):
     ws.column_dimensions[c].width=w
 
 # ================= CAT. VIEW =================
@@ -228,7 +228,7 @@ for i,h in enumerate(["Category","Product","Metrics"]+months+weeks+days,1):
     if i>3+len(months): c.number_format=DF
 ws.freeze_panes=ws.cell(row=HR+1,column=4)
 CM,CW = 4, 4+len(months); CD=CW+len(weeks); NC=CD+len(days)-1
-METRICS=["GMV","QTY","ASP","Net Revenue","COGS (incl GST)","GM","GM %"]
+METRICS=["GMV","QTY","ASP","Booked Revenue","Discount %","COGS (incl GST)","GM","GM %"]
 DQ=Q(DUMP)
 def block(r0,label,kind,fill=None,bold=False):
     for j,m in enumerate(METRICS):
@@ -238,19 +238,20 @@ def block(r0,label,kind,fill=None,bold=False):
             ws.cell(row=r,column=2,value=label).font=Font(bold=bold)
         for ci in range(CM,NC+1):
             hc=f"{L(ci)}${HR}"
-            dim = "U" if ci<CW else ("T" if ci<CD else "B")
+            dim = "S" if ci<CW else ("R" if ci<CD else "B")
             key = "" if kind is None else (f',{DQ}!$G:$G,$B${r0}' if kind=="P"
-                                           else f',{DQ}!$V:$V,$A${r0}')
+                                           else f',{DQ}!$T:$T,$A${r0}')
             S=lambda col: f'SUMIFS({DQ}!${col}:${col},{DQ}!${dim}:${dim},{hc},{DQ}!$A:$A,$A$2{key})'
-            if m=="GMV":            f=f'=IFERROR(IF({S("M")}=0,"",{S("M")}),"")'
+            if m=="GMV":            f=f'=IFERROR(IF({S("N")}=0,"",{S("N")}),"")'
             elif m=="QTY":          f=f'=IFERROR(IF({S("L")}=0,"",{S("L")}),"")'
-            elif m=="ASP":          f=f'=IFERROR(IF({S("L")}=0,"",{S("M")}/{S("L")}),"")'
-            elif m=="Net Revenue":  f=f'=IFERROR(IF({S("Q")}=0,"",{S("Q")}),"")'
-            elif m=="COGS (incl GST)": f=f'=IFERROR(IF({S("Y")}=0,"",{S("Y")}),"")'
-            elif m=="GM":           f=f'=IFERROR(IF({S("Y")}=0,"",{S("Q")}-{S("Y")}),"")'
-            else:                   f=f'=IFERROR(IF({S("Y")}=0,"",({S("Q")}-{S("Y")})/{S("Q")}),"")'
+            elif m=="ASP":          f=f'=IFERROR(IF({S("L")}=0,"",{S("O")}/{S("L")}),"")'
+            elif m=="Booked Revenue": f=f'=IFERROR(IF({S("O")}=0,"",{S("O")}),"")'
+            elif m=="Discount %":   f=f'=IFERROR(IF({S("N")}=0,"",1-{S("O")}/{S("N")}),"")'
+            elif m=="COGS (incl GST)": f=f'=IFERROR(IF({S("W")}=0,"",{S("W")}),"")'
+            elif m=="GM":           f=f'=IFERROR(IF({S("W")}=0,"",{S("N")}-{S("W")}),"")'
+            else:                   f=f'=IFERROR(IF({S("W")}=0,"",({S("N")}-{S("W")})/{S("N")}),"")'
             c=ws.cell(row=r,column=ci,value=f)
-            c.number_format=IF_ if m=="QTY" else (PF if m=="GM %" else MF)
+            c.number_format=IF_ if m=="QTY" else (PF if m in ("GM %","Discount %") else MF)
             if fill: c.fill=fill
             if bold: c.font=Font(bold=True)
         if fill:
@@ -279,4 +280,4 @@ print(f"dates          : {d0} -> {d1} | months: {months}")
 print(f"dump           : rows 2..{LD}, cols A..AA")
 print(f"mapper         : rows 2..{LM}")
 print(f"cat.view       : rows {HR+1}..{LC}, cols A..{L(NC)}  ({len(sold)} SKUs sold)")
-print(f"GMV {sum(x['gmv'] for x in rows):,.2f} | QTY {sum(x['qty'] for x in rows):,.0f}")
+print(f"Booked Revenue {sum(x['gmv'] for x in rows):,.2f} | QTY {sum(x['qty'] for x in rows):,.0f}")

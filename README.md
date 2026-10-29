@@ -30,7 +30,7 @@ It is not committed — it carries pricing.
 | `TIRA AJIO MAPPER` | One row per SKU: SAP + LB + internal SKU ID, category, MRP, landing rate, COGS, SOH |
 | `SOH Tira Ajio` | Aug vs Sep stock on hand with movement |
 | `Tira Ajio Sales Dump` | Merged Tira + Ajio line items, normalised to one schema |
-| `Cat.View Tira Ajio` | GMV / QTY / ASP / Net Revenue / COGS / GM / GM% by month |
+| `Cat.View Tira Ajio` | GMV / QTY / ASP / Booked Revenue / Discount % / COGS / GM / GM% by month |
 
 ## Join key
 
@@ -43,6 +43,9 @@ editing the mapper reflows the whole workbook.
 
 - `COGS W/o GST` is blank by design — it is the only true input. GM stays blank
   until it is filled.
-- SKU `494836841` has no Landing Rate in the master, so its Net Revenue and GM
-  are blank (~17% of GMV).
+- `GMV` is `Quantity x MRP` (list value). The platform's own booked value is
+  kept beside it as `Booked Revenue`, and `Discount %` is the gap between
+  them. Margin is therefore margin at list, not on realisation.
+- Landing Rate is still carried in the mapper for reference but no longer
+  drives any figure.
 - Neither platform reports customer state, so there is no `ZONE` column.
