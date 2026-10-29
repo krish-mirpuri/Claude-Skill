@@ -5,7 +5,7 @@ from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.utils.cell import quote_sheetname as Q
 
-SEP, AUG, MASTER, OUT = sys.argv[1:5]
+SEP, AUG, MASTER, COGSF, OUT = sys.argv[1:6]
 DUMP, MAP, DD, CV, SOHT = ("Tira Ajio Sales Dump", "TIRA AJIO MAPPER", "Dropdown",
                            "Cat.View Tira Ajio", "SOH Tira Ajio")
 
@@ -23,6 +23,13 @@ tira_sep, tira_aug = grab(SEP,"Tira Sales")[1:], grab(AUG,"Tira Sales")[1:]
 ajio_sep, ajio_aug = grab(SEP,"Ajio Sales")[1:], grab(AUG,"Ajio Sales")[1:]
 tira_cat = {str(r[2]).strip(): (r[3], r[5], r[6], r[7]) for r in tira_sep if r[2]}
 ajio_cat = {str(r[1]).strip(): (r[2], r[4], r[5]) for r in ajio_sep if r[1]}
+
+cogs = {}
+with open(COGSF) as f:
+    for row in csv.reader(f, delimiter="\t"):
+        if len(row) >= 3 and row[1].strip():
+            cogs[row[0].strip()] = (float(row[1]),
+                                    float(row[2]) if row[2].strip() else None)
 
 master = []
 with open(MASTER) as f:
@@ -129,16 +136,17 @@ for i,(sku,sap,name,mrp,land) in enumerate(master,2):
     short,cat,tag = TAX.get(sap,("","",""))
     t=tira_cat.get(lb,("","","","")); a=ajio_cat.get(sap,("","",""))
     live = bool(lb)
-    V=[sap,sku,lb,short,name,cat,tag,mrp,land,None,None,0.18,None,
+    cw, cg = cogs.get(sku, (None, None))
+    V=[sap,sku,lb,short,name,cat,tag,mrp,land,None,cw,None,cg,
        t[1],t[2],t[3],a[1],a[2],st_a,soh_sep.get(lb)]
     for j,v in enumerate(V,1):
         c=ws.cell(row=i,column=j,value=v); c.border=BOX
         if not live: c.fill=NEW
     ws.cell(row=i,column=10,value=f'=IFERROR($I{i}/$H{i},"")').number_format=PF
-    ws.cell(row=i,column=13,value=f'=IF($K{i}="","",$K{i}*(1+$L{i}))').number_format=MF
+    ws.cell(row=i,column=12,value=f'=IFERROR($M{i}/$K{i}-1,"")').number_format=PF
     for cc,fmt in ((8,MF),(9,MF),(11,MF),(12,PF),(19,IF_),(20,IF_)):
         ws.cell(row=i,column=cc).number_format=fmt
-    for cc in (6,7,11): ws.cell(row=i,column=cc).fill=INP
+    for cc in (6,7,11,13): ws.cell(row=i,column=cc).fill=INP
 LM=1+len(master)
 for col,f1,n in (("F",f"={Q(DD)}!$A$2:$A${N_CAT}",0),("G",f"={Q(DD)}!$B$2:$B${N_TAG}",0)):
     dv=DataValidation(type="list",formula1=f1,allow_blank=True); ws.add_data_validation(dv)
@@ -147,7 +155,7 @@ ws.auto_filter.ref=f"A1:T{LM}"
 for c,w in zip(["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T"],
                (15,9,14,30,42,13,13,9,13,10,13,8,13,13,16,18,13,21,11,11)):
     ws.column_dimensions[c].width=w
-ws.cell(row=LM+2,column=1,value="Orange = fill in. COGS W/o GST (col K) is the only true gap; everything downstream is formula-driven.").font=Font(italic=True,color="C00000")
+ws.cell(row=LM+2,column=1,value="Orange = sourced from the Meesho COGS sheet. GST % (col L) is derived from the two COGS columns, so it shows the rate actually embedded in them.").font=Font(italic=True,color="C00000")
 ws.cell(row=LM+3,column=1,value="Grey rows = SKUs with no LB code / no SOH yet (not live on Tira). They map automatically once they start selling.").font=Font(italic=True,color="7F7F7F")
 
 # ================= SOH =================
@@ -276,6 +284,9 @@ print(f"merged rows    : {len(rows)}  (Tira {sum(1 for x in rows if x['plat']=='
 print(f"unmapped SAP   : {sorted({x['sap'] for x in rows if x['sap'] not in {m[1] for m in master}})}")
 print(f"blank SAP rows : {sum(1 for x in rows if not x['sap'])}")
 print(f"no landing rate: {sorted({m[1] for m in master if m[4] is None})}")
+print(f"no COGS        : {sorted({m[0] for m in master if m[0] not in cogs}) or 'none'}")
+_z=[m[0] for m in master if cogs.get(m[0]) and cogs[m[0]][1]==cogs[m[0]][0]]
+print(f"GST reads 0%   : {_z}")
 print(f"dates          : {d0} -> {d1} | months: {months}")
 print(f"dump           : rows 2..{LD}, cols A..AA")
 print(f"mapper         : rows 2..{LM}")

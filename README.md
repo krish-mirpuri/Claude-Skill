@@ -6,7 +6,7 @@ Rebuilds the Reliance (Tira + Ajio) reporting tabs that mirror the Meesho
 ## Usage
 
 ```bash
-python3 scripts/build_tira_ajio.py <sep.xlsx> <aug.xlsx> <master.tsv> <out.xlsx>
+python3 scripts/build_tira_ajio.py <sep.xlsx> <aug.xlsx> <master.tsv> <cogs.tsv> <out.xlsx>
 ```
 
 Monthly refresh: drop the new `Tuco_Kids_<Mon>_Sales_SOH.xlsx` in as the first
@@ -41,8 +41,14 @@ editing the mapper reflows the whole workbook.
 
 ## Known gaps
 
-- `COGS W/o GST` is blank by design — it is the only true input. GM stays blank
-  until it is filled.
+- COGS comes from the Meesho workbook's `COGS data` tab, as a tab-separated
+  `SKU code / COGS without GST / COGS with GST`, joined on the EasyEcom SKU ID.
+  Both columns are taken verbatim and `GST %` is derived from them, so the rate
+  actually embedded in the source is visible rather than assumed.
+- Six SKUs carry an identical figure in both COGS columns, so their GST derives
+  as 0%: 64995, 64615, 64512, 64569, 64562, 64917. These look like unfilled
+  cells rather than genuine zero-rating; COGS for them is understated until the
+  source is corrected.
 - `GMV` is `Quantity x MRP` (list value). The platform's own booked value is
   kept beside it as `Booked Revenue`, and `Discount %` is the gap between
   them. Margin is therefore margin at list, not on realisation.
