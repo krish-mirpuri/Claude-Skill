@@ -3,6 +3,7 @@ from openpyxl import Workbook
 from openpyxl.utils import get_column_letter as L
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.worksheet.datavalidation import DataValidation
+from openpyxl.formatting.rule import ColorScaleRule
 from openpyxl.utils.cell import quote_sheetname as Q
 
 SEP, AUG, MASTER, COGSF, LBF, OUT = sys.argv[1:7]
@@ -224,7 +225,7 @@ for c,w in zip(["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P",
 
 # ================= CAT. VIEW =================
 ws=wb.create_sheet(CV)
-ws.sheet_view.showGridLines=False
+ws.sheet_view.showGridLines=True
 d0,d1=min(r["date"] for r in rows),max(r["date"] for r in rows)
 months=[]
 for r in sorted(rows,key=lambda x:x["date"]):
@@ -233,7 +234,8 @@ for r in sorted(rows,key=lambda x:x["date"]):
 
 CUR, CUR2, PCT2, INT2 = '#,##0', '#,##0.00', '0.0%', '#,##0'
 HR   = 3
-NCOL = 3+len(months)
+NCOL = 3+len(months)+1
+TOTC = NCOL
 PLAT = "$Z$1"
 INK, MUTE, RULE = "1F3864", "595959", "8EA9DB"
 med  = Side(style="medium", color=INK)
@@ -264,7 +266,7 @@ hlp=ws.cell(row=1,column=26,value='=IF($B$2="All","*",$B$2)')
 hlp.font=Font(color="FFFFFF",size=1)
 
 # ---- header row ----
-for i,h in enumerate(["Category","Product","Metric"]+months,1):
+for i,h in enumerate(["Category","Product","Metric"]+months+["Total"],1):
     c=ws.cell(row=HR,column=i,value=h)
     c.fill, c.font = HDR, Font(color="FFFFFF",bold=True,size=10)
     c.alignment=Alignment(horizontal="center" if i>3 else "left",
@@ -273,12 +275,22 @@ for i,h in enumerate(["Category","Product","Metric"]+months,1):
 ws.row_dimensions[HR].height=24
 ws.freeze_panes=ws.cell(row=HR+1,column=4)
 
+CATCOL={
+ "Hair":       ("8FAADC","E9EFF9"), "Face Care": ("B4A7D6","EFEBF8"),
+ "Dull Skin":  ("C9A66B","F4EDE1"), "Lotion":    ("F4B183","FDEFE6"),
+ "Make up":    ("D5A6BD","F7EBF1"), "Mosquito":  ("A3C4BC","ECF4F1"),
+ "Others":     ("BFBFBF","F2F2F2"), "Sanitizer": ("7FD1C1","E6F7F4"),
+ "Shower gel": ("9BC2E6","EAF3FB"), "Soap":      ("A9D08E","EDF6E7"),
+ "Sun":        ("FFD966","FFF6DC"), "Toothpaste":("F6A8B8","FDEBEF"),
+ "Combo":      ("E0B0C0","F9EDF1"),
+}
 METRICS=["GMV","QTY","ASP","Booked Revenue","Discount %","COGS (incl GST)","GM","GM %"]
 NM=len(METRICS)
 FMT={"GMV":CUR,"QTY":INT2,"ASP":CUR2,"Booked Revenue":CUR,"Discount %":PCT2,
      "COGS (incl GST)":CUR,"GM":CUR,"GM %":PCT2}
 DQ=Q(DUMP)
 
+MROW={}
 def emit(r0, kind, keycell, fill, bold, rule_top):
     """One 8-metric block. kind: None=grand total, 'T'=category, 'G'=product."""
     for j,m in enumerate(METRICS):
@@ -287,11 +299,13 @@ def emit(r0, kind, keycell, fill, bold, rule_top):
         S=lambda col: (f'SUMIFS({DQ}!${col}:${col},{DQ}!$S:$S,{L(4)}${HR}'
                        f',{DQ}!$A:$A,{PLAT}{key})')
         mc=ws.cell(row=r,column=3,value=m)
-        mc.font=Font(bold=bold,size=9,color="000000" if bold else "404040")
+        mc.font=Font(bold=True,size=9,color="000000" if bold else "3F3F3F")
         mc.alignment=Alignment(horizontal="left",vertical="center",indent=1)
         for ci in range(4,NCOL+1):
             hc=f"{L(ci)}${HR}"
-            S=lambda col: (f'SUMIFS({DQ}!${col}:${col},{DQ}!$S:$S,{hc}'
+            S=(lambda col: f'SUMIFS({DQ}!${col}:${col},{DQ}!$A:$A,{PLAT}{key})') \
+              if ci==TOTC else \
+              (lambda col: f'SUMIFS({DQ}!${col}:${col},{DQ}!$S:$S,{hc}'
                            f',{DQ}!$A:$A,{PLAT}{key})')
             if   m=="GMV":             f=f'=IFERROR(IF({S("N")}=0,"",{S("N")}),"")'
             elif m=="QTY":             f=f'=IFERROR(IF({S("L")}=0,"",{S("L")}),"")'
@@ -304,27 +318,38 @@ def emit(r0, kind, keycell, fill, bold, rule_top):
             c=ws.cell(row=r,column=ci,value=f)
             c.number_format=FMT[m]
             c.alignment=Alignment(horizontal="right",vertical="center",indent=1)
-            c.font=Font(bold=bold,size=10,
+            c.font=Font(bold=bold or ci==TOTC, size=10,
                         color="C00000" if m in ("GM","GM %") and bold else "000000")
+            if ci==TOTC and not fill:
+                c.fill=PatternFill("solid",fgColor="F2F5FA")
+            if ci==TOTC: c.font=Font(bold=True,size=10,
+                color="C00000" if m in ("GM","GM %") and bold else "000000")
         for ci in range(1,NCOL+1):
-            cell=ws.cell(row=ci and r or r,column=ci)
+            cell=ws.cell(row=r,column=ci)
             if fill: cell.fill=fill
-            b={}
-            if rule_top and j==0: b["top"]=med
-            if j==NM-1:           b["bottom"]=hair
-            if b: cell.border=Border(**b)
+            cell.border=Border(left=hair, right=hair,
+                               top=(med if (rule_top and j==0) else hair),
+                               bottom=(med if (rule_top and j==NM-1) else hair))
         ws.row_dimensions[r].height=17
+        if not bold: MROW.setdefault(m,[]).append(r)
     return r0+NM
 
 def label(col,r0,span,text,bold,size,fill,indent):
     ws.merge_cells(start_row=r0,start_column=col,end_row=r0+span-1,end_column=col)
     c=ws.cell(row=r0,column=col,value=text)
-    c.font=Font(bold=bold,size=size,color=INK if bold else "000000")
+    c.font=Font(bold=True,size=size,color=INK if bold else "1A1A1A")
     c.alignment=Alignment(horizontal="left",vertical="center",wrap_text=True,indent=indent)
     if fill:
         for rr in range(r0,r0+span): ws.cell(row=rr,column=col).fill=fill
 
 sold={r["sap"] for r in rows}
+gmv_by_sap={}
+for _r in rows:
+    _m=next((m for m in master if m[1]==_r["sap"]), None)
+    if _m and _m[3]: gmv_by_sap[_r["sap"]]=gmv_by_sap.get(_r["sap"],0)+_r["qty"]*_m[3]
+cat_gmv={}
+for _sp,_v in gmv_by_sap.items():
+    _c=TAX.get(_sp,("","",""))[1]; cat_gmv[_c]=cat_gmv.get(_c,0)+_v
 r=HR+1
 # grand total
 emit(r,None,None,TOT,True,True)
@@ -333,21 +358,39 @@ label(2,r,NM,"All products",True,10,TOT,1)
 r+=NM
 # per category
 alt=False
-for cat in [c for c in CATS if any(TAX.get(s,("","",""))[1]==c for s in sold)]:
-    mem=[s for s in sorted(sold,key=lambda x:order.get(x,999))
-         if TAX.get(s,("","",""))[1]==cat]
+for cat in sorted([c for c in CATS if any(TAX.get(s,("","",""))[1]==c for s in sold)],
+                  key=lambda c: -cat_gmv.get(c,0)):
+    mem=[s for s in sold if TAX.get(s,("","",""))[1]==cat]
+    mem.sort(key=lambda sp: -gmv_by_sap.get(sp,0))
+    strong,tint=CATCOL.get(cat,("8FAADC","E9EFF9"))
+    CFILL=PatternFill("solid",fgColor=strong)
+    TFILL=PatternFill("solid",fgColor=tint)
     sec=r; span=NM*(1+len(mem))
-    emit(r,"T",f"$A${r}",SUB,True,True)
-    label(2,r,NM,"All "+cat,True,10,SUB,1)
+    emit(r,"T",f"$A${r}",CFILL,True,True)
+    label(2,r,NM,"All "+cat,True,10,CFILL,1)
     r+=NM
-    for sidx,sp in enumerate(mem):
-        band=PatternFill("solid",fgColor="F7F9FC") if sidx%2 else None
-        emit(r,"G",f"$B${r}",band,False,False)
-        label(2,r,NM,TAX[sp][0],False,10,band,2)
+    for sp in mem:
+        emit(r,"G",f"$B${r}",TFILL,False,False)
+        label(2,r,NM,TAX[sp][0],False,10,TFILL,2)
         r+=NM
     label(1,sec,span,cat,True,11,None,1)
-    ws.cell(row=sec,column=1).fill=SUB
+    for rr in range(sec,sec+span): ws.cell(row=rr,column=1).fill=CFILL
 LC=r-1
+def rng(metric):
+    return " ".join(f"{L(4)}{x}:{L(TOTC)}{x}" for x in MROW.get(metric,[]))
+if MROW.get("GMV"):
+    ws.conditional_formatting.add(rng("GMV"), ColorScaleRule(
+        start_type="min", start_color="FFFFFF", end_type="max", end_color="9DC3E6"))
+if MROW.get("GM %"):
+    ws.conditional_formatting.add(rng("GM %"), ColorScaleRule(
+        start_type="num", start_value=0.5,  start_color="F8CBAD",
+        mid_type="num",   mid_value=0.75,   mid_color="FFF2CC",
+        end_type="num",   end_value=0.9,    end_color="C6E0B4"))
+if MROW.get("Discount %"):
+    ws.conditional_formatting.add(rng("Discount %"), ColorScaleRule(
+        start_type="num", start_value=0.15, start_color="C6E0B4",
+        mid_type="num",   mid_value=0.30,   mid_color="FFF2CC",
+        end_type="num",   end_value=0.45,   end_color="F8CBAD"))
 for c,w in zip(["A","B","C"],(17,32,17)): ws.column_dimensions[c].width=w
 for ci in range(4,NCOL+1): ws.column_dimensions[L(ci)].width=15
 
