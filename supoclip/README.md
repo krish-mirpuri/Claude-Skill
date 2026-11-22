@@ -72,6 +72,13 @@ LLM=google-gla:gemini-3-flash-preview
 GOOGLE_API_KEY=...
 ```
 
+**Transcription is pinned to English with the `medium` Whisper model.**
+`TRANSCRIPTION_LANGUAGE` defaults to auto-detect, which on noisy or archival
+audio drifts mid-video and emits stretches of the wrong alphabet entirely. The
+LLM then has nothing usable to select from and SupoClip falls back to clipping
+the opening of the video. Pin the language whenever you know it; drop to `small`
+only if the box is short on memory.
+
 **One model in memory at a time.** Ollama runs with `OLLAMA_MAX_LOADED_MODELS=1`
 and `OLLAMA_NUM_PARALLEL=1`. Two 8B models resident at once exhausted a 15 GB
 box and the kernel started killing processes.

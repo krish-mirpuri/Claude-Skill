@@ -119,7 +119,8 @@ def secret():
 p = pathlib.Path(".env"); t = p.read_text()
 vals = {
   "TRANSCRIPTION_PROVIDER": "whisper",
-  "WHISPER_MODEL_SIZE": "small",
+  "WHISPER_MODEL_SIZE": "medium",
+  "TRANSCRIPTION_LANGUAGE": "en",
   "BACKEND_CPU_ONLY": "true",
   "LLM": "ollama:${MODEL_NAME}",
   "OLLAMA_BASE_URL": "http://host.docker.internal:11434/v1",
